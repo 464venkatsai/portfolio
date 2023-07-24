@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<style>
+/* Initial styles for the card */
+.card {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+/* Styles for the details that are initially hidden */
+.card .details {
+  display: none;
+}
+
+/* Styles for the card when hovered */
+.card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Styles for the details when the card is hovered */
+.card:hover .details {
+  display: block;
+  /* Additional styles for positioning, background color, etc. */
+}
+
+</style>
+<body>
+  <div class="card">
+    <h2>Card Title</h2>
+    <p>Card Description</p>
+    <div class="details">
+      <p>Additional details here</p>
+    </div>
+  </div>
+  
+</body>
+</html>
