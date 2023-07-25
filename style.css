@@ -9,13 +9,14 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
   overflow-x: hidden;
-  background: #333;
+  background: #111;
 }
 
 * {
   margin: 0px;
   padding: 0px;
   font-family: "Poppins", sans-serif;
+  color: white;
 }
 
 #navbar {
@@ -57,6 +58,9 @@ nav ul li {
   cursor: pointer;
   font-size: 17px;
   font-weight: 650;
+  backdrop-filter: blur(10px);
+        color: transparent;
+        text-shadow: 0 0 8px #000;
 }
 
 /* the hamburger  styles starts from here */
@@ -115,7 +119,7 @@ nav ul li {
 .Home {
   background: #333;
   padding-top: 5em;
-  display: flex;
+  display: none;
   justify-content: center;
 }
 
@@ -130,8 +134,6 @@ video{
   justify-content: center;
   height: 22rem;
   align-items: center;
-}
-.typewriter{
 }
 
 #typing-text {
@@ -171,13 +173,19 @@ h3 span{
   animation: animate;
 }
 
-.About {
+.About{
+ display: none;
+}
+.container {
   width: 100%;
-  display: none;
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr)); 
   justify-items: space-around;
-  grid-gap: 1rem; 
+  grid-gap: 5%; 
   overflow: auto;
+  justify-items: center;
+  padding: 3.5rem 0rem;
+  /* height: 100vh; */
   /* padding: 0 1rem; */
 }
 
@@ -186,14 +194,17 @@ h3 span{
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  height: 17.16rem;
+  width: 85%;
+  height: auto;
   background-color: #0d6efd;
   position: relative;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin: 0;
   border-radius: 15px;
 }
-
+.card:hover{
+  box-shadow: 0px 9px 30px rgba(0, 0, 0, 0.534);
+}
 
 .card-image {
   padding: 0;
@@ -251,3 +262,57 @@ h3 span{
   background: white;
   border: 2px solid #0d6efd;
 }
+.btn{
+  width: 9rem;
+  margin-top: 1rem;
+  height: 2.5rem;
+  cursor: pointer;
+  background: #000;
+  border: 1.5px solid #ff96ad;
+  color: white;
+  border-radius: 2px;
+}
+.btn:hover{
+  background: #ff96ad;
+  transition-duration: 0.5s;
+}
+.Contact{
+  width: 100%;
+  padding: 5%;
+}
+.gradient-border {
+  width: 40%;
+  height: 100px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  z-index: -1;
+  border: 4px solid;
+  border-image: linear-gradient(to right, red, purple) 1;
+  border-image-slice: 1;
+  border-radius: 8px;
+}
+
+.inputs{
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2%;
+}
+.input-values{
+ background-color: #000;
+ color: white;
+ outline: none;
+ width: 50%;
+}
+
+
