@@ -2,6 +2,7 @@
 // The hambergur viewitems function
 const ViewItems = () => {
   let items = document.getElementById("items");
+  document.getElementById('typing-text').style.animation = `I am a ${arr[i]} `
   if (items.style.display != "grid") {
     items.style.display = "grid";
     items.style.animation = "animation 2s ease";
@@ -22,7 +23,6 @@ const ViewItems = () => {
     items.style.paddingTop = ".5rem";
     items.style.paddingBottom = "2rem";
     items.style.textAlign = "center";
-    console.log("hello");
     setTimeout(() => {
       document.getElementById("navbar").style.height = "327px";
     }, 1890);
@@ -30,8 +30,6 @@ const ViewItems = () => {
     document.getElementById("navbar").style.animation =
       "navbar-reverse-animation 1.9s ease";
     items.style.animation = "reverse-animation 2s ease";
-
-    console.log(items);
     setTimeout(() => {
       items.style.display = "none";
       document.getElementById("navbar").style.height = "80px";
@@ -46,6 +44,10 @@ const Router = (ID_ARR)=>{
     document.querySelectorAll(`${class_}`)[0].style.display = 'none'
   })
   document.querySelectorAll(`${ID_ARR[0]}`)[0].style.display = 'grid'
+  if(document.getElementById('Home').style.display ===''){
+    restartVideo();
+    resetAnimation();
+  }
 }
 
 
@@ -53,36 +55,36 @@ const change_page = (link)=>{
     window.location.href = `${link}`;
 }
 
-// Typewriter Effect
-const h1Element = document.getElementById('typing-text');
-let i = 0
-function setTypewriterAnimation() {
-    arr = ['Data Scientist','ML Engineer','Programmer','Data Analyst']
-    h1Element.textContent = `I am a ${arr[i]}`
-    if(i===4){
-        i=0
-    }
-    else{
-        i+=1
-    }
-    h1Element.classList.add('typing-animation');
-    h1Element.classList.remove('remove-typing-animation');
+// const delay = ms => new Promise(res => setTimeout(res, ms));
+let i= 0
+arr = ['Data Scientist',"Web Developer","Programmer","ML Engineer"]
+const change_text = ()=>{
+  document.getElementById('typing-text').textContent = `I am a ${arr[i]} `
+  // document.getElementById('typing-text').classList.add('wait')
+  if (i===3){
+    i=-1
+  }
+  i+=1
+}
+setInterval(() => {
+  change_text()
+  // resetVideo()
+  // resetAnimation()
+}, 7000);
+
+const video = document.querySelectorAll('video')[0];
+
+// Call the resetAnimation function every 8 seconds
+setInterval(restartVideo, 7000);
+setInterval(resetAnimation, 7000);
+function restartVideo() {
+  video.currentTime = 0; // Reset video to the start
 }
 
-// Function to remove the animation classes
-function removeTypewriterAnimation() {
-    const h1Element = document.getElementById('typing-text');
-    h1Element.classList.remove('typing-animation');
-    h1Element.classList.add('remove-typing-animation');
+const element = document.getElementById('typing-text');
+function resetAnimation() {
+  element.style.display = 'none'; 
+  setTimeout(() => {
+    element.style.display = 'flex'; 
+  }, 500);
 }
-
-// Initial setup with animation
-setTypewriterAnimation();
-const timepass = ()=>{}
-
-// Run the animation every 3 seconds
-setInterval(function() {
-  setTimeout(timepass,1000)
-    removeTypewriterAnimation();
-    setTimeout(setTypewriterAnimation, 1000); // Delay before re-adding the animation
-}, 7500);

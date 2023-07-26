@@ -12,79 +12,52 @@
             justify-content: center;
         }
 
-        .typewriter h1 {
+        .typewriter {
             color: #fff;
             font-family: monospace;
             white-space: nowrap;
             margin: 0 auto;
             overflow: hidden;
-            position: relative;
-            width: 0; /* Set the initial width to 0 */
+            border-right: .15em solid orange;
+            font-size: 10px; /* Fixed font size of the word */
+            width: 10px; /* Fixed width of the container */
+            display: inline-block;
         }
 
-        /* New keyframes for the class-based animations */
+        /* The typing effect */
         @keyframes typing-animation {
-            from { width: 0; left: 100%; }
-            to { width: 100%; left: 0; }
+            from { width: 0; }
+            to { width: 100%; }
         }
 
-        @keyframes reverse-typing-animation {
-            from { width: 100%; left: 0; }
-            to { width: 0; left: 100%; }
-        }
-
-        @keyframes blink-caret-animation {
-            from, to { border-color: transparent }
-            50% { border-color: orange }
-        }
-
-        /* Add new classes for animations */
-        .typing-animation {
-            animation: typing-animation 3.5s steps(30, end);
-        }
-
-        .remove-typing-animation {
-            animation: reverse-typing-animation 0s steps(1, end);
-            border-right: none; /* Hide the cursor initially */
+        /* Individual letter animation */
+        .typewriter span {
+            display: inline-block;
+            width: 0;
+            animation: typing-animation 5s steps(30, end);
         }
     </style>
 </head>
 <body>
     <div class="typewriter">
-        <h1 id="typing-text">I am a Data Scientist</h1>
+        <span>I</span>
+        <span>a</span>
+        <span>m</span>
+        <span>a</span>
+        <span>D</span>
+        <span>a</span>
+        <span>t</span>
+        <span>a</span>
+        <span>S</span>
+        <span>c</span>
     </div>
 
     <script>
-        // Function to add and remove animation classes
-        const h1Element = document.getElementById('typing-text');
-        let i = 0;
-        function setTypewriterAnimation() {
-            arr = ['Data Scientist', 'ML Engineer', 'Programmer', 'Data Analyst'];
-            h1Element.textContent = `I am a ${arr[i]}`;
-            if (i === 3) {
-                i = 0;
-            } else {
-                i += 1;
-            }
-            h1Element.classList.add('typing-animation');
-            h1Element.classList.remove('remove-typing-animation');
-        }
-
-        // Function to remove the animation classes
-        function removeTypewriterAnimation() {
-            const h1Element = document.getElementById('typing-text');
-            h1Element.classList.remove('typing-animation');
-            h1Element.classList.add('remove-typing-animation');
-        }
-
-        // Initial setup with animation
-        setTypewriterAnimation();
-
-        // Run the animation every 4 seconds (adjust as needed)
-        setInterval(function() {
-            removeTypewriterAnimation();
-            setTimeout(setTypewriterAnimation, 100); // Delay before re-adding the animation
-        }, 4000);
+        // JavaScript to set animation delay for each letter
+        const spans = document.querySelectorAll('.typewriter span');
+        spans.forEach((span, index) => {
+            span.style.animationDelay = `${300 * index}ms`;
+        });
     </script>
 </body>
 </html>

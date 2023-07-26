@@ -61,6 +61,7 @@ nav ul li {
   backdrop-filter: blur(10px);
         color: transparent;
         text-shadow: 0 0 8px #000;
+  display: block;
 }
 
 /* the hamburger  styles starts from here */
@@ -119,7 +120,7 @@ nav ul li {
 .Home {
   background: #333;
   padding-top: 5em;
-  display: none;
+  display: flex;
   justify-content: center;
 }
 
@@ -136,41 +137,29 @@ video{
   align-items: center;
 }
 
+.typewriter{
+  display: flex;
+  width: 30rem;
+  /* justify-content: center; */
+}
 #typing-text {
+  animation:  typing-animation 7s infinite;
   color: #fff;
   font-family: monospace;
   overflow: hidden;
-  border-right: none;
   white-space: nowrap;
-  margin: 0 auto;
-  letter-spacing: .15em;
+  letter-spacing: .14em;
+  /* width: auto; */
+  font-size: 28px;
 }
+
 
 /* New keyframes for the class-based animations */
 @keyframes typing-animation {
-  from { width: 0 }
-  to { width: 100% }
-}
-
-@keyframes blink-caret-animation {
-  from, to { border-color: transparent }
-  50% { border-color: orange }
-}
-
-/* Add new classes for animations */
-.typing-animation {
-  animation: typing-animation 3.5s steps(30, end);
-}
-
-.remove-typing-animation {
-  animation: none;
-  border-right: .15em solid transparent;
-}
-
-h3 span{
-  opacity: 0;
-  display: inline-block;
-  animation: animate;
+  0% { width: 0 }
+  1% {width: .1%;}
+  /* 90% { width: 90% } */
+  100% { width: 100% }
 }
 
 .About{
@@ -279,6 +268,7 @@ h3 span{
 .Contact{
   width: 100%;
   padding: 5%;
+  display: none;
 }
 .gradient-border {
   width: 40%;

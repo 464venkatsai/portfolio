@@ -6,74 +6,53 @@
   <title>Document</title>
 </head>
 <style>
-  body{
-    margin: 0;
-    padding: 0;
-  }
-  section{
-    height: 100vh;
-    background-color: black;
-  }
-  video{
-    object-fit: cover;
-    height: 30rem;
-    width: 50rem;
-  }
-  h1{
-    margin: 0;
-    padding: 0;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100%;
-    text-align: center;
-    color:#ddd;
-    font-size: 5rem;
-    letter-spacing: 0.2rem;
-  }
-  h1 span{
-    opacity: 0;
-    display: inline-block;
-    animation: animate 6s linear forwards;
-  }
-  @keyframes animate{
-    0%{
-    opacity: 0;
-    transform: rotateY(90deg);
-    filter: blur(10px);
-  }
-  100%{
-      transform: rotateY(0deg);
-    opacity: 1;
-    filter: blur(0);
+  @keyframes typing {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
     }
   }
-  h1 span:nth-child(1){
-    animation-delay: 1s;
+  
+  .typing-animation {
+    display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    animation: typing 6.5s linear 0s infinite;
+    width: 0; /* Initialize the width to 0 */
+    visibility: hidden; /* Hide the element initially */
   }
-  h1 span:nth-child(2){
-    animation-delay: 1.5s;
-  }
-  h1 span:nth-child(3){
-    animation-delay: 2s;
-  }
-  h1 span:nth-child(4){
-    animation-delay: 2.5s;
-  }
-  h1 span:nth-child(5){
-    animation-delay: 3s;
-  }
+   
 </style>
 <body>
-  <video src="smoke_anime.mp4" autoplay muted loop></video>
-  <section>
-    <h1>
-      <span>H</span>
-      <span>E</span>
-      <span>L</span>
-      <span>L</span>
-      <span>O</span>
-    </h1>
-  </section>
+  <div class="typing-animation">Your text here</div>
+
 </body>
-</html> 
+<script>
+  function startAnimation() {
+    const typingElement = document.querySelector('.typing-animation');
+    typingElement.style.visibility = 'visible'; // Show the element before starting the animation
+    typingElement.style.animationDelay = '0s'; // Reset the animation delay to 0s
+  
+    // Start the animation
+    typingElement.style.animationPlayState = 'running';
+  
+    // Wait for 6.5 seconds (animation duration) + 2 seconds (waiting time)
+    setTimeout(() => {
+      typingElement.style.animationPlayState = 'paused'; // Pause the animation
+  
+      // Wait for 2 seconds
+      setTimeout(() => {
+        startAnimation(); // Repeat the animation loop
+      }, 2000);
+    }, 5000);
+  }
+  
+  // Start the animation loop
+  startAnimation();
+  
+  
+
+</script>
+</html>
