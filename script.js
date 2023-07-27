@@ -44,7 +44,7 @@ const Router = (ID_ARR)=>{
     document.querySelectorAll(`${class_}`)[0].style.display = 'none'
   })
   document.querySelectorAll(`${ID_ARR[0]}`)[0].style.display = 'grid'
-  if(document.getElementById('Home').style.display ===''){
+  if(document.querySelectorAll('.Home')[0].style.display ==='grid'){
     restartVideo();
     resetAnimation();
   }
@@ -57,9 +57,9 @@ const change_page = (link)=>{
 
 // const delay = ms => new Promise(res => setTimeout(res, ms));
 let i= 0
-arr = ['Data Scientist',"Web Developer","Programmer","ML Engineer"]
+arr = ['Data Scientist and Analyst',"Front - End Web Developer","Python Programmer","Machine Learning Engineer"]
 const change_text = ()=>{
-  document.getElementById('typing-text').textContent = `I am a ${arr[i]} `
+  document.getElementById('typing-text').textContent = `${arr[i]} `
   // document.getElementById('typing-text').classList.add('wait')
   if (i===3){
     i=-1
@@ -68,9 +68,7 @@ const change_text = ()=>{
 }
 setInterval(() => {
   change_text()
-  // resetVideo()
-  // resetAnimation()
-}, 7000);
+}, 7010);
 
 const video = document.querySelectorAll('video')[0];
 
@@ -83,8 +81,28 @@ function restartVideo() {
 
 const element = document.getElementById('typing-text');
 function resetAnimation() {
-  element.style.display = 'none'; 
+  element.style.display = 'hidden'; 
+  element.style.animationPlayState = 'paused';
+
+  // Set the animation to the starting position
+  element.style.animation = 'none';
+  element.offsetHeight; // Force a reflow to reset the animation
+
+  // Restart the animation
+  element.style.animation = 'typing-animation 7s infinite';
+  element.style.animationPlayState = 'running';
   setTimeout(() => {
     element.style.display = 'flex'; 
   }, 500);
 }
+
+const image = document.querySelector('.hand-shake');
+
+    function pauseAnimation() {
+      image.style.animationPlayState = 'paused';
+      setTimeout(() => {
+        image.style.animationPlayState = 'running';
+      }, 800);
+    }
+
+    image.addEventListener('animationiteration', pauseAnimation);

@@ -3,13 +3,20 @@ body {
   height: 100vh;
   margin: 0px;
   padding: 0px;
-  /* background: url("https://media.istockphoto.com/id/157639184/photo/gloomy-winterland.webp?s=612x612&w=0&k=20&c=nXuEQCULPlu7siVgEKtrEOeXXkLPfShm2o7jImYVgN4=")
-    no-repeat; */
+  /* background: url("https://images.unsplash.com/photo-1423784346385-c1d4dac9893a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80") no-repeat; */
   background-size: cover; 
   background-repeat: no-repeat;
   background-position: center center;
   overflow-x: hidden;
-  background: #111;
+  background: black;
+}
+
+.flex{
+  display: flex;
+}
+.flex-column{
+  display: flex;
+  flex-direction: column;
 }
 
 * {
@@ -29,8 +36,8 @@ body {
   height: 5rem;
   padding: 0 5%;
   box-shadow: 0px 0.5px 12px #acaaaa;
-  background-color: rgba(255, 255, 255, 0.397);
-  backdrop-filter: blur(10px) saturate(160%) contrast(45%) brightness(140%);
+  /* background-color: rgba(255, 255, 255, 0.397); */
+  /* backdrop-filter: blur(10px) saturate(160%) contrast(45%) brightness(140%); */
   z-index: 1;
 }
 
@@ -58,9 +65,10 @@ nav ul li {
   cursor: pointer;
   font-size: 17px;
   font-weight: 650;
-  backdrop-filter: blur(10px);
+  color: #fff;
+  /* backdrop-filter: blur(10px);
         color: transparent;
-        text-shadow: 0 0 8px #000;
+        text-shadow: 0 0 8px #000; */
   display: block;
 }
 
@@ -118,29 +126,54 @@ nav ul li {
 }
 
 .Home {
-  background: #333;
+  background: black;
   padding-top: 5em;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  /* justify-content: center; */
+  /* background: url("https://images.unsplash.com/photo-1423784346385-c1d4dac9893a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80") no-repeat; */
 }
 
 video{
   width: 40rem;
-  height: auto;
+  height: 28rem;
+  /* border: 2px solid green; */
+  /* position: relative; */
 }
 .typeanime{
   position: absolute;
   display: flex;
   width: 100%;
-  justify-content: center;
-  height: 22rem;
+  /* justify-content: center; */
+  height: 14rem;
   align-items: center;
+  /* border: 2px solid white; */
 }
 
 .typewriter{
   display: flex;
   width: 30rem;
-  /* justify-content: center; */
+  height: 100%;
+  flex-direction: column;
+  /* align-items: space-around; */
+  justify-content: space-between;
+  /* border: 2px solid blue; */
+  margin-left: 6%;
+}
+.hand-shake {
+  /* width: 3rem; */
+  height: 3rem;
+  animation: shake 1s infinite;
+  margin: 2rem ;
+  margin-top: .18rem;
+  margin-bottom: .82rem;
+}
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-6px) rotate(-6deg); }
+  50% { transform: translateX(6px) rotate(6deg); }
+  75% { transform: translateX(-6px) rotate(-6deg); }
+  /* 95% { transform: translateX(5px) rotate(5deg); } */
+  100% { transform: translateX(0); }
 }
 #typing-text {
   animation:  typing-animation 7s infinite;
@@ -148,12 +181,34 @@ video{
   font-family: monospace;
   overflow: hidden;
   white-space: nowrap;
-  letter-spacing: .14em;
-  /* width: auto; */
-  font-size: 28px;
+  letter-spacing: .5px;
+  /* font-weight: 500; */
+  /* color: #00FFFF; */
+  /* font-family: 'Poppins', sans-serif !important; */
+  font-family: 'Raleway', sans-serif;
+  font-size: 38px;
+  padding-left: 1rem;
 }
 
+.title{
+  font-weight: bolder;
+  letter-spacing: .4px;
+  font-size: 38px;
+  /* line-height: .5; */
+  font-weight: 400;
+  font-family: 'Raleway', sans-serif;
+  margin: 1rem;
 
+}
+.main{
+  font-weight: 500;
+  color: #00FFFF;
+  /* color: #FF00FF;
+  color: #00FF00;
+  color: #FF0000;
+  color: #0000FF; */
+
+}
 /* New keyframes for the class-based animations */
 @keyframes typing-animation {
   0% { width: 0 }
