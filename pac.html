@@ -1,63 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Typewriter Effect</title>
-    <style>
-        body {
-            background: #333;
-            padding-top: 5em;
-            display: flex;
-            justify-content: center;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Container Hover Effect (Flexbox)</title>
+  <style>
+    /* Example container styles (you can customize this) */
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+    }
 
-        .typewriter {
-            color: #fff;
-            font-family: monospace;
-            white-space: nowrap;
-            margin: 0 auto;
-            overflow: hidden;
-            border-right: .15em solid orange;
-            font-size: 10px; /* Fixed font size of the word */
-            width: 10px; /* Fixed width of the container */
-            display: inline-block;
-        }
+    /* Example card styles (you can customize this) */
+    .card {
+      width: 200px;
+      height: 200px;
+      background-color: #f1f1f1;
+      margin: 10px;
+      border-radius: 8px;
+      transition: opacity 0.3s ease; /* Transition for smoother effect */
+    }
 
-        /* The typing effect */
-        @keyframes typing-animation {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
-        /* Individual letter animation */
-        .typewriter span {
-            display: inline-block;
-            width: 0;
-            animation: typing-animation 5s steps(30, end);
-        }
-    </style>
+    /* CSS rule for the hover effect */
+    .container:hover .card:not(:hover) {
+      opacity: 0.2;
+    }
+  </style>
 </head>
 <body>
-    <div class="typewriter">
-        <span>I</span>
-        <span>a</span>
-        <span>m</span>
-        <span>a</span>
-        <span>D</span>
-        <span>a</span>
-        <span>t</span>
-        <span>a</span>
-        <span>S</span>
-        <span>c</span>
-    </div>
-
-    <script>
-        // JavaScript to set animation delay for each letter
-        const spans = document.querySelectorAll('.typewriter span');
-        spans.forEach((span, index) => {
-            span.style.animationDelay = `${300 * index}ms`;
-        });
-    </script>
+  <div class="container">
+    <div class="card">Card 1</div>
+    <div class="card">Card 2</div>
+    <div class="card">Card 3</div>
+    <!-- Add more cards here -->
+  </div>
 </body>
 </html>

@@ -77,12 +77,12 @@ nav ul li {
   display: none;
 }
 
-.line {
+.line-nav {
   width: 2.2rem;
   height: 0.18rem;
   margin: 4px 2px;
   border-radius: 1px;
-  background-color: black;
+  background-color: white;
 }
 
 /* keyframes for hamburger */
@@ -128,7 +128,7 @@ nav ul li {
 .Home {
   background: black;
   padding-top: 5em;
-  display: grid;
+  display: none;
   /* justify-content: center; */
   /* background: url("https://images.unsplash.com/photo-1423784346385-c1d4dac9893a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80") no-repeat; */
 }
@@ -177,7 +177,7 @@ video{
 }
 #typing-text {
   animation:  typing-animation 7s infinite;
-  color: #fff;
+  color: #FAEBD7;
   font-family: monospace;
   overflow: hidden;
   white-space: nowrap;
@@ -218,7 +218,7 @@ video{
 }
 
 .About{
- display: none;
+ display: grid;
 }
 .container {
   width: 100%;
@@ -229,6 +229,8 @@ video{
   overflow: auto;
   justify-items: center;
   padding: 3.5rem 0rem;
+  /* background: red; */
+  /* opacity: 0.5; */
   /* height: 100vh; */
   /* padding: 0 1rem; */
 }
@@ -245,8 +247,10 @@ video{
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin: 0;
   border-radius: 15px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
-.card:hover{
+.card:hover
+{
   box-shadow: 0px 9px 30px rgba(0, 0, 0, 0.534);
 }
 
@@ -321,16 +325,21 @@ video{
   transition-duration: 0.5s;
 }
 .Contact{
-  width: 100%;
-  padding: 5%;
+  width: 95.7%;
+  padding: 2%;
   display: none;
+  grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
+
+  /* border: 2px solid green; */
+
 }
 .gradient-border {
-  width: 40%;
-  height: 100px;
+  height: 100%;
   position: relative;
   display: flex;
   flex-direction: column;
+  grid-gap: 10px;
+  /* border: 2px solid blue ; */
 }
 
 .gradient-border::before {
@@ -354,10 +363,73 @@ video{
   padding: 2%;
 }
 .input-values{
- background-color: #000;
+ background-color:  black;
  color: white;
  outline: none;
  width: 50%;
+ height: 2rem;
+ margin: 1rem;
+}
+.contact-details{
+  /* border: 2px solid white; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around ;
+  grid-gap: 2rem;
+  padding: 2rem 4rem;
+  /* place-items: center; */
+  /* padding: 5%; */
+}
+.img{
+  background: white;
+  margin: 1rem;
+  border-radius: 15px;
+}
+.img:hover{
+  background: white;
+  box-shadow: 0 0 5px #ff96ad,0 0 25px #ff96ad,0 0 50px #ff96ad,0 0 200px #ff96ad;
+}
+.line{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+  height: 2px;
+  width: 100%;
+  background-image: linear-gradient(to bottom right, red , blue);
 }
 
+@keyframes animate__bounceIn {
+  /* 0%,60%, 80%, 100% { */
+  0%, 20% ,40%,60%, 80%, 100% {
+    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+  }
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  20% {
+    transform: scale(1.1);
+  }
+  40% {
+    transform: scale(0.9);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+  80% {
+    transform: scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 
+/* The actual CSS rules for the animate__bounceIn class */
+.animate__bounceIn {
+  animation-name: animate__bounceIn;
+  animation-duration: 1s;
+  /* Add other animation properties if needed, such as timing function, delay, etc. */
+}

@@ -48,6 +48,18 @@ const Router = (ID_ARR)=>{
     restartVideo();
     resetAnimation();
   }
+  if(document.querySelectorAll('.About')[0].style.display ==='grid'){
+    let card = document.querySelectorAll('.card')
+    card.forEach(element => {
+      element.classList.add('animate__bounceIn')
+    });
+    setTimeout(() => {
+      card.forEach(element => {
+        console.log(element)
+        element.classList.remove('animate__bounceIn')
+      });
+    }, 1000);
+  }
 }
 
 
@@ -97,7 +109,6 @@ function resetAnimation() {
 }
 
 const image = document.querySelector('.hand-shake');
-
     function pauseAnimation() {
       image.style.animationPlayState = 'paused';
       setTimeout(() => {
