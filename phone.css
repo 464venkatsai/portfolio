@@ -4,7 +4,7 @@
     overflow-x: hidden;
   }
   * {
-    color: black;
+    color: white;
   }
   #navbar {
     background: rgba(52, 53, 65, 1);
@@ -16,6 +16,7 @@
     justify-content: flex-start;
     overflow: hidden;
     padding: 0px;
+    margin-bottom: 2rem;
   }
   .items {
     background: rgba(52, 53, 65, 1);

@@ -45,6 +45,7 @@ const Router = (ID_ARR)=>{
   })
   document.querySelectorAll(`${ID_ARR[0]}`)[0].style.display = 'grid'
   if(document.querySelectorAll('.Home')[0].style.display ==='grid'){
+    document.querySelectorAll('.Home')[0].style.display ='flex'
     restartVideo();
     resetAnimation();
   }
@@ -117,3 +118,8 @@ const image = document.querySelector('.hand-shake');
     }
 
     image.addEventListener('animationiteration', pauseAnimation);
+
+    document.addEventListener("DOMContentLoaded", function () {
+      let cardElement = document.querySelector('.card');
+      cardElement.classList.add('animate__bouneIn');
+    });

@@ -16,29 +16,34 @@
           <div class="line-nav"></div>
         </ul>
         <ul class="portfolio-icon">
-          <img src="" alt="Profle-Photo" srcset="" />
+          <img src="profile_pic.png" alt="Profle-Photo" srcset="" class="profile-icon"/>
         </ul>
         <ul class="items" id="items">
-          <li class="list-item" id="Home" onclick="Router(['.Home','.About','.Blog','.Contact'])">Home</li>
-          <li class="list-item" id="About" onclick="Router(['.About','.Home','.Blog','.Contact'])">About</li>
-          <li class="list-item" id="Blog" onclick="Router(['.Blog','.About','.Home','.Contact'])">Blog</li>
-          <li class="list-item" id="Contact" onclick="Router(['.Contact','.Home','.About','.Blog'])">Contact</li>
+          <li class="list-item" id="Home" onclick="Router(['.Home','.About','.Blog','.contact'])">Home</li>
+          <li class="list-item" id="About" onclick="Router(['.About','.Home','.Blog','.contact'])">About</li>
+          <li class="list-item" id="Blog" onclick="Router(['.Blog','.About','.Home','.contact'])">Blog</li>
+          <li class="list-item" id="Contact" onclick="Router(['.contact','.Home','.About','.Blog'])">Contact</li>
         </ul>
       </nav>
     
       <section class="Home">
-        <video src="smoke_anime.mp4" class="video" autoplay muted loop></video>
-        <div class="typeanime">
-          <div class="typewriter">
-            <strong class="flex-column">
-              <div class="flex">
-                <pre class="title">Hi There !</pre>
-                <img src="wave.png" alt="" class="hand-shake">
-              </div>
-              <pre class="title flex">I'M <pre class="main"> VENKAT SAI</pre></pre>
-            </strong>
-            <pre id="typing-text">Machine Learning Engineer</pre>
+          <div class="video-animation">
+            <video src="smoke_anime.mp4" class="video" autoplay muted loop></video>
+            <div class="typeanime">
+              <div class="typewriter">
+                <strong class="flex-column">
+                  <div class="flex">
+                    <pre class="title">Hi There !</pre>
+                    <img src="wave.png" alt="" class="hand-shake">
+                </div>
+                <pre class="title flex">I'M <pre class="main"> VENKAT SAI</pre></pre>
+              </strong>
+              <pre id="typing-text">Machine Learning Engineer</pre>
+            </div>
+          </div>
         </div>
+        <div class="profile">
+          <img src="profile.png" class="profile-pic" srcset="">
         </div>
       </section>
     
@@ -83,31 +88,44 @@
       <section class="Blog">
         <!-- Blog section content goes here -->
       </section>
-    
-      <section class="Contact">
-        <div class="gradient-border flex-column">
-          <form action="https://formsubmit.co/yogeswarkilli@gmail.com" method="POST" class="inputs">
-            <input type="text" class="input-values" id="name" placeholder="Enter name">
-            <input type="text" class="input-values" id="msg" placeholder="Enter name">
-            <input type="text" class="input-values" id="email" placeholder="Enter name">
-            <button class="btn ">submit</button>
-          </form>
-        </div>
-        <div class="contact-details">
-          <h1>Connect with Me</h1>
-          <div class="line"></div>
-          <div class="contact-links">
-            <a href="https://github.com/464venkatsai" target="_blank"><img width="30" class="img" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt=""></a>
-                <a href="https://www.linkedin.com/in/yogeswar-venkatasai-726275235/" target="_blank"><img width="30" class="img" src="https://cdn-icons-png.flaticon.com/512/1384/1384088.png" alt=""></a>
-                <a href="https://www.instagram.com/464venkatsai/" target="_blank"><img width="30"  class="img"src="https://cdn-icons-png.flaticon.com/512/717/717392.png" alt=""></a>
-                <a href="https://www.facebook.com/raji.lakshmi.33449/" target="_blank"><img width="30"  class="img"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAY1BMVEX///8AAAD7+/vCwsI+Pj739/fy8vKUlJR6enrNzc2AgIC+vr53d3dlZWVNTU0ZGRlbW1vc3Nynp6e1tbXo6OiHh4crKysgICBra2sKCgpUVFRISEivr68zMzNDQ0PU1NSfn58moitwAAAExklEQVR4nO1baZezKgy2al26uNtlpq39/7/ynYC2uCAJ0Mu55/T5Nk4xjyQkIQTP++KL/yf8pkz3Vdwmh0PSxtU+LRv/P5MdpfExO20mOGXHOI0+zyKNf6aiRfzE6Sel7w9rwgcc9p+RXrZnUUz+KC6HJNntkuRwKR65+L9zW9qW7qfH1+uvYRH/GZ2obz/6M8q4CK+vHx1Tq+YQvBX/e+ukr/a72+/bHAJr4tPXW4tbpPpxdCteXO0YZHPp33dvldJ7Du19UERjLN6ver2GNVI8o1CHvb1UhqbQ9PN5qokv8uveVRVGk1D1U3nTGXzrB1fa4re99ndbzfE7Pv6iOb7M2PBHpzcc0D3YKzItv9Rx59YaWZHfcrep8REpt2JjbxLwVUR2CTWffsLSkyHiaqhpo7gFF+biAQV9JfHv39mR73k76hxw/ce25HteTLODztB/LIB7NORaKHPL3w9gc5Cj/ME2s6r/AcwOMoxPvFi0fxFsLVzUv2PaetiX73kPlGU1zP9Z8D9zRMwnKqKzzybKXjY3QsCUux5bmALaz8j3vFaphAZm6UGNf01QP+M4fla3ug7WVpoPZnBdU8KR4C4G6dV9tCkJ1+yHubij/P8p2QP48Wi7pCLAvYHcJbP8n5I/NeFminUCW/jJr+y/ATVqdjPxKgI8zktWmQ/7rxNBfjmdfgQBD7L1n2UzZxZASVwWKwUqArXcCmAJhIQlWC/JVxLwQ9lCKKkTcNUiwHkveQtwU3dCEAgW5asJRLBzXXK2Z8lzGdplAiflN8DA8/zxHkYTJsB/jOTmSVUz7JV+JILfz+tIUH+ipCHbkfwnYSRLTQ6zp/AaihNqRPm0BI45o+nDlKiBPnXnuNLiF9PB1BVA1ir10UsQF8GduP+GmDPJupkbJm2eRAIhTT7TwcQdR+SJNCHQXWf6Bo1S3LAZAeaOx0YQExehGQG2EMdGcJybxScJwPeOApKfLSyMDxIAjWeixhtIE2iVJCMCEHlPzeRBTqsoGhFo8skHw5Sg6kFNOaASCbwfl6jPYHUjUeUQChV7Jo5ko8ITQ4DtAMWACJ+D2DkP1Z414EwZagDiHg2WxTxAahHAmTIEf3HZQ5KS2CGAM2VQZTv52w4BZUq4LBBmBJVUKAmgTJm/R9S5PQIoS5oTsKcCZF49FWjPCJFJzdQI7S1DZESbLkO0I1J6QmRAmToitCvexwPEc+zz6ynSBGauGB2M3hCjIbmuOQtGzsOx84TEeUrmPCl1n5Y735g435o535yabc+pBBa25/QChQGBxQIFuURjQGCxREMuUhkQWC5SUct0+gQkZTpqoVKfgKRQSS3VahOQlmqJxWptAtJiNbFcr0tAXq4nHljoElg5sKAd2egSWDmyoR1aaRJYO7SiHdvpEVg/tiMdXOoRUBxcUo5utQiojm4ph9c6BNSH14Tjex0C6uN7QgODBgFMAwO+hYNOANXCgW9ioRPANbGg23iCTT7giiKAbePBNjL5WwGI1+IbmZy3crlvZnPfzue+odF9S6f7plb3bb3uG5vdt3a7b273nLf3e+4vOLi/4vGHZrhh5OaSC8DxNR+A44tOnvurXgC3l9043F7343B74ZHB8ZXPgYXDS69ffGEZ/wDVRT5k/0UWCgAAAABJRU5ErkJggg==" alt=""></a>
+      <div class="contact">
+        <section class="Contact">
+          <div class="gradient-border flex-column">
+            <form action="https://formsubmit.co/yogeswarkilli@gmail.com" method="POST" class="inputs">
+              <div class="form">
+                <input type="text" class="input-values" id="name" required>
+                <label class="label-name" for="email">
+                  <span class="content-name">Enter name</span>
+                </label>
+              </div>
+              <div class="form">
+                <input type="text" class="input-values" id="email" required>
+                <label class="label-name" for="email">
+                  <span class="content-name">Enter Email</span>
+                </label>
+              </div>
+              <div class="form">
+                <input type="text" class="input-values" id="message" required>
+                <label class="label-name" for="email">
+                  <span class="content-name">Enter Message</span>
+                </label>
+              </div>
+              <button class="btn ">submit</button>
+            </form>
           </div>
-        </div>
-      </section>
-  <script src="script.js">document.addEventListener("DOMContentLoaded", function () {
-    let cardElement = document.querySelector('.card');
-    cardElement.classList.add('animate__bouneIn');
-  });
+          <div class="contact-details">
+            <h1>Connect with Me</h1>
+            <div class="line"></div>
+            <div class="contact-links">
+              <a href="https://github.com/464venkatsai" target="_blank"><img width="30" class="img" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt=""></a>
+                  <a href="https://www.linkedin.com/in/yogeswar-venkatasai-726275235/" target="_blank"><img width="30" class="img" src="https://cdn-icons-png.flaticon.com/512/1384/1384088.png" alt=""></a>
+                  <a href="https://www.instagram.com/464venkatsai/" target="_blank"><img width="30"  class="img"src="https://cdn-icons-png.flaticon.com/512/717/717392.png" alt=""></a>
+                  <a href="https://www.facebook.com/raji.lakshmi.33449/" target="_blank"><img width="30"  class="img"src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAY1BMVEX///8AAAD7+/vCwsI+Pj739/fy8vKUlJR6enrNzc2AgIC+vr53d3dlZWVNTU0ZGRlbW1vc3Nynp6e1tbXo6OiHh4crKysgICBra2sKCgpUVFRISEivr68zMzNDQ0PU1NSfn58moitwAAAExklEQVR4nO1baZezKgy2al26uNtlpq39/7/ynYC2uCAJ0Mu55/T5Nk4xjyQkIQTP++KL/yf8pkz3Vdwmh0PSxtU+LRv/P5MdpfExO20mOGXHOI0+zyKNf6aiRfzE6Sel7w9rwgcc9p+RXrZnUUz+KC6HJNntkuRwKR65+L9zW9qW7qfH1+uvYRH/GZ2obz/6M8q4CK+vHx1Tq+YQvBX/e+ukr/a72+/bHAJr4tPXW4tbpPpxdCteXO0YZHPp33dvldJ7Du19UERjLN6ver2GNVI8o1CHvb1UhqbQ9PN5qokv8uveVRVGk1D1U3nTGXzrB1fa4re99ndbzfE7Pv6iOb7M2PBHpzcc0D3YKzItv9Rx59YaWZHfcrep8REpt2JjbxLwVUR2CTWffsLSkyHiaqhpo7gFF+biAQV9JfHv39mR73k76hxw/ce25HteTLODztB/LIB7NORaKHPL3w9gc5Cj/ME2s6r/AcwOMoxPvFi0fxFsLVzUv2PaetiX73kPlGU1zP9Z8D9zRMwnKqKzzybKXjY3QsCUux5bmALaz8j3vFaphAZm6UGNf01QP+M4fla3ug7WVpoPZnBdU8KR4C4G6dV9tCkJ1+yHubij/P8p2QP48Wi7pCLAvYHcJbP8n5I/NeFminUCW/jJr+y/ATVqdjPxKgI8zktWmQ/7rxNBfjmdfgQBD7L1n2UzZxZASVwWKwUqArXcCmAJhIQlWC/JVxLwQ9lCKKkTcNUiwHkveQtwU3dCEAgW5asJRLBzXXK2Z8lzGdplAiflN8DA8/zxHkYTJsB/jOTmSVUz7JV+JILfz+tIUH+ipCHbkfwnYSRLTQ6zp/AaihNqRPm0BI45o+nDlKiBPnXnuNLiF9PB1BVA1ir10UsQF8GduP+GmDPJupkbJm2eRAIhTT7TwcQdR+SJNCHQXWf6Bo1S3LAZAeaOx0YQExehGQG2EMdGcJybxScJwPeOApKfLSyMDxIAjWeixhtIE2iVJCMCEHlPzeRBTqsoGhFo8skHw5Sg6kFNOaASCbwfl6jPYHUjUeUQChV7Jo5ko8ITQ4DtAMWACJ+D2DkP1Z414EwZagDiHg2WxTxAahHAmTIEf3HZQ5KS2CGAM2VQZTv52w4BZUq4LBBmBJVUKAmgTJm/R9S5PQIoS5oTsKcCZF49FWjPCJFJzdQI7S1DZESbLkO0I1J6QmRAmToitCvexwPEc+zz6ynSBGauGB2M3hCjIbmuOQtGzsOx84TEeUrmPCl1n5Y735g435o535yabc+pBBa25/QChQGBxQIFuURjQGCxREMuUhkQWC5SUct0+gQkZTpqoVKfgKRQSS3VahOQlmqJxWptAtJiNbFcr0tAXq4nHljoElg5sKAd2egSWDmyoR1aaRJYO7SiHdvpEVg/tiMdXOoRUBxcUo5utQiojm4ph9c6BNSH14Tjex0C6uN7QgODBgFMAwO+hYNOANXCgW9ioRPANbGg23iCTT7giiKAbePBNjL5WwGI1+IbmZy3crlvZnPfzue+odF9S6f7plb3bb3uG5vdt3a7b273nLf3e+4vOLi/4vGHZrhh5OaSC8DxNR+A44tOnvurXgC3l9043F7343B74ZHB8ZXPgYXDS69ffGEZ/wDVRT5k/0UWCgAAAABJRU5ErkJggg==" alt=""></a>
+            </div>
+          </div>
+        </section>
+      </div>
+  <script src="script.js">
   </script>
   </body>
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"></script> -->
