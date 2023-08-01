@@ -45,7 +45,6 @@ const Router = (ID_ARR)=>{
   })
   document.querySelectorAll(`${ID_ARR[0]}`)[0].style.display = 'grid'
   if(document.querySelectorAll('.Home')[0].style.display ==='grid'){
-    document.querySelectorAll('.Home')[0].style.display ='flex'
     restartVideo();
     resetAnimation();
   }

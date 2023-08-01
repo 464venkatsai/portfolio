@@ -234,6 +234,9 @@ video{
   color: #0000FF; */
 
 }
+.phone-intro{
+  display: none;
+}
 /* New keyframes for the class-based animations */
 @keyframes typing-animation {
   0% { width: 0 }
