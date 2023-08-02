@@ -1,4 +1,3 @@
-
 // The hambergur viewitems function
 const ViewItems = () => {
   let items = document.getElementById("items");
@@ -43,16 +42,18 @@ const Router = (ID_ARR)=>{
   ID_ARR.forEach((class_)=>{
     document.querySelectorAll(`${class_}`)[0].style.display = 'none'
   })
-  document.querySelectorAll(`${ID_ARR[0]}`)[0].style.display = 'grid'
-  if(document.querySelectorAll('.Home')[0].style.display ==='grid'){
+  document.querySelectorAll(`${ID_ARR[0]}`)[0].style.display = 'flex'
+  if(document.querySelectorAll('.home')[0].style.display ==='flex'){
     restartVideo();
     resetAnimation();
   }
-  if(document.querySelectorAll('.About')[0].style.display ==='grid'){
+  if(document.querySelectorAll('.About')[0].style.display ==='flex'){
     let card = document.querySelectorAll('.card')
     card.forEach(element => {
       element.classList.add('animate__bounceIn')
+      console.log(element)
     });
+
     setTimeout(() => {
       card.forEach(element => {
         console.log(element)
