@@ -123,3 +123,27 @@ const image = document.querySelector('.hand-shake');
       let cardElement = document.querySelector('.card');
       cardElement.classList.add('animate__bouneIn');
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+      const classNamesArray = ['video-animation','profile','container','contact-details','gradient-border'];
+
+      const observer = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = "1";
+              entry.target.style.transform = "translateX(0)";
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.5 }
+      );
+
+      classNamesArray.forEach((className) => {
+        const elements = document.querySelectorAll(`.${className}`);
+        elements.forEach((element) => {
+          observer.observe(element);
+        });
+      });
+    });

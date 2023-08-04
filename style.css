@@ -143,6 +143,9 @@ nav ul li {
   padding-top: 5em;
   width: 50%;
   position: relative;
+  transform:  translateX(-30rem);
+  transition: opacity  2.8s, transform 2.7s;
+  opacity: 0;
 }
 .profile-pic{
   width: 54%;
@@ -159,6 +162,9 @@ nav ul li {
   width: 50%;
   display: grid;
   place-items: center;
+  transform:  translateX(30rem);
+  transition: opacity  2.8s, transform 2.7s;
+  opacity: 0;
   
 }
 video{
@@ -246,7 +252,8 @@ video{
 }
 
 .About{
- display: none;
+ display: flex;
+
 }
 .container {
   width: 100%;
@@ -257,6 +264,9 @@ video{
   overflow: auto;
   justify-items: center;
   padding: 3.5rem 0rem;
+  transform:  translateX(-30rem);
+  transition: opacity  2.8s, transform 2.7s;
+  opacity: 0;
 }
 
 /* cards design */
@@ -371,6 +381,9 @@ video{
   position: relative;
   display: flex;
   flex-direction: column;
+  transform:  translateX(-30rem);
+  transition: opacity  2.8s, transform 2.7s;
+  opacity: 0;
   /* border: 2px solid blue; */
 }
 
@@ -414,7 +427,9 @@ video{
   gap: 2rem;
   padding: 2rem 4rem;
   padding-right: 0;
-
+  transform:  translateX(30rem);
+  transition: opacity  2.8s, transform 2.7s;
+  opacity: 0;
 }
 .contact-links{
   display: flex;
@@ -522,7 +537,33 @@ video{
 }
 
 .contact{
-  display: none;
+  display: flex;
   height: auto;
   padding: 5%;
 }
+
+    /* Customize the scrollbar track */
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    /* Customize the scrollbar thumb */
+    ::-webkit-scrollbar-thumb {
+      background-color: #767878;
+      border-radius: 6px;
+    }
+
+    /* Customize the scrollbar thumb on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background-color: #353535;
+    }
+
+    /* Customize the scrollbar track on hover */
+    ::-webkit-scrollbar-track {
+      background-color: #060606;
+    }
+
+    /* Customize the scrollbar corner (if applicable) */
+    ::-webkit-scrollbar-corner {
+      background-color: #000000;
+    }
