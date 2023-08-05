@@ -1,6 +1,6 @@
 body {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   margin: 0px;
   padding: 0px;
   background-size: cover; 
@@ -128,13 +128,16 @@ nav ul li {
     height: 80px;
   }
 }
+.home{
+  display: flex;
+}
 
 .Home {
   background: black;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 4% 4%;
+  padding: 4%;
   height: 70%;
 }
 
@@ -143,8 +146,8 @@ nav ul li {
   padding-top: 5em;
   width: 50%;
   position: relative;
-  transform:  translateX(-30rem);
-  transition: opacity  2.8s, transform 2.7s;
+  transform:  translateX(-3rem);;;
+  transition: opacity  2s, transform 1.9s;
   opacity: 0;
 }
 .profile-pic{
@@ -162,8 +165,8 @@ nav ul li {
   width: 50%;
   display: grid;
   place-items: center;
-  transform:  translateX(30rem);
-  transition: opacity  2.8s, transform 2.7s;
+  transform:  translateX(3rem);;
+  transition: opacity  2s, transform 1.9s;
   opacity: 0;
   
 }
@@ -242,6 +245,8 @@ video{
 }
 .phone-intro{
   display: none;
+  transform: translateX(-3rem);
+  transition: opacity 2s , transform 1.9s
 }
 /* New keyframes for the class-based animations */
 @keyframes typing-animation {
@@ -250,31 +255,40 @@ video{
   /* 90% { width: 90% } */
   100% { width: 100% }
 }
-
-.About{
- display: flex;
-
+.About {
+  display: flex;
+  flex-direction: column;
+  padding: 3.5rem 3%;
+}
+.Head{
+  font-size: 3vi;
+  font-family: 'Raleway', sans-serif;
+  margin-bottom: 3rem;
+  color: #00FFFF;
+  font-weight: 500;
+  letter-spacing: 1px;
+  display: flex;
+  justify-content: center;
 }
 .container {
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(26rem, 1fr)); 
-  justify-items: space-around;
-  grid-gap: 5%; 
-  overflow: auto;
-  justify-items: center;
-  padding: 3.5rem 0rem;
-  transform:  translateX(-30rem);
-  transition: opacity  2.8s, transform 2.7s;
-  opacity: 0;
-}
-
-/* cards design */
-.card {
+    /* border: 2px solid red; */
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    justify-items: space-around;
+    grid-gap: 5%;
+    opacity: 0;
+    place-items: center;
+    transform: translateX(-3rem);
+    transition: opacity 2s, transform 1.9s;
+  }
+  /* cards design */
+  .card {
+  /* transition-delay: 1500ms; */
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  width: 85%;
+  /* width: 85%; */
   height: auto;
   background-color: #0d6efd;
   position: relative;
@@ -295,7 +309,7 @@ video{
   background-size: cover; 
   background-repeat: no-repeat;
   background-position: center center;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .project {
@@ -381,8 +395,8 @@ video{
   position: relative;
   display: flex;
   flex-direction: column;
-  transform:  translateX(-30rem);
-  transition: opacity  2.8s, transform 2.7s;
+  transform:  translateX(-3rem);;;
+  transition: opacity  2s, transform 1.9s;
   opacity: 0;
   /* border: 2px solid blue; */
 }
@@ -427,8 +441,8 @@ video{
   gap: 2rem;
   padding: 2rem 4rem;
   padding-right: 0;
-  transform:  translateX(30rem);
-  transition: opacity  2.8s, transform 2.7s;
+  transform:  translateX(3rem);;
+  transition: opacity  2s, transform 1.9s;
   opacity: 0;
 }
 .contact-links{
@@ -544,7 +558,7 @@ video{
 
     /* Customize the scrollbar track */
     ::-webkit-scrollbar {
-      width: 10px;
+      display: none;
     }
 
     /* Customize the scrollbar thumb */
@@ -565,5 +579,5 @@ video{
 
     /* Customize the scrollbar corner (if applicable) */
     ::-webkit-scrollbar-corner {
-      background-color: #000000;
+      background-color: #c84747;
     }

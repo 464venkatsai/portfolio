@@ -1,4 +1,3 @@
-// The hambergur viewitems function
 const ViewItems = () => {
   let items = document.getElementById("items");
   document.getElementById('typing-text').style.animation = `I am a ${arr[i]} `
@@ -125,7 +124,7 @@ const image = document.querySelector('.hand-shake');
     });
 
     document.addEventListener("DOMContentLoaded", function () {
-      const classNamesArray = ['video-animation','profile','container','contact-details','gradient-border'];
+      const classNamesArray = ['video-animation','profile','container','contact-details','gradient-border','phone-intro'];
 
       const observer = new IntersectionObserver(
         (entries, observer) => {
@@ -133,6 +132,7 @@ const image = document.querySelector('.hand-shake');
             if (entry.isIntersecting) {
               entry.target.style.opacity = "1";
               entry.target.style.transform = "translateX(0)";
+              entry.target.style.transform = "translateZ(0)";
               observer.unobserve(entry.target);
             }
           });

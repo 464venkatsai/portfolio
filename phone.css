@@ -2,13 +2,14 @@
   body {
     /* background-color: black; */
     overflow-x: hidden;
+    height: 100%;
+    width: 100%;
   }
   * {
     color: white;
   }
   #navbar {
     background: rgba(52, 53, 65, 1);
-    width: 100%;
     display: flex;
     top: 0px;
     left: 0px;
@@ -17,6 +18,7 @@
     overflow: hidden;
     padding: 0px;
     margin-bottom: 2rem;
+    width: 100%;
   }
   .items {
     background: rgba(52, 53, 65, 1);
@@ -92,6 +94,9 @@
 }
 .contact-details{
   padding: 2%;
+}
+.card-img{
+  width: auto;
 }
 }
 
