@@ -64,6 +64,7 @@
   height: 50%;
   align-items: center;
   flex-direction: column;
+  overflow-x: hidden;
 }
 .video-animation{
   width: 100%;

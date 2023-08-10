@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="phone.css" />
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"> -->
+ 
     <title>Home</title>
   </head>
     <body>
@@ -19,13 +19,13 @@
           <img src="profile_pic.png" alt="Profle-Photo" srcset="" class="profile-icon"/>
         </ul>
         <ul class="items" id="items">
-          <li class="list-item" id="Home" onclick="Router(['.Home','.About','.Blog','.contact'])">Home</li>
-          <li class="list-item" id="About" onclick="Router(['.About','.Home','.Blog','.contact'])">About</li>
-          <li class="list-item" id="Blog" onclick="Router(['.Blog','.About','.Home','.contact'])">Blog</li>
-          <li class="list-item" id="Contact" onclick="Router(['.contact','.Home','.About','.Blog'])">Contact</li>
+          <li class="list-item" id="Home" >Home</li>
+          <li class="list-item" id="About" >About</li>
+          <li class="list-item" id="Blog" >Blog</li>
+          <li class="list-item" id="Contact" >Contact</li>
         </ul>
       </nav>
-      <div class="home">
+      <section class="home">
         <section class="Home">
             <div class="video-animation">
               <video src="smoke_anime.mp4" class="video" autoplay muted loop></video>
@@ -51,7 +51,7 @@
             <pre class="title flex" style="margin-right: 3rem;"> I'M <pre class="main">VENKAT SAi</pre> </pre>
           </div>
         </section>
-      </div>
+      </section>
     
         <section class="About">
           <h2 class="Head">MY RECENT WORKS</h2>
@@ -95,7 +95,7 @@
       <section class="Blog">
         <!-- Blog section content goes here -->
       </section>
-      <div class="contact">
+      <section class="contact">
         <section class="Contact">
           <div class="gradient-border flex-column">
             <form action="https://formsubmit.co/yogeswarkilli@gmail.com" method="POST" class="inputs">
@@ -131,9 +131,8 @@
             </div>
           </div>
         </section>
-      </div>
+      </section>
   <script src="script.js">
   </script>
   </body>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"></script> -->
 </html>

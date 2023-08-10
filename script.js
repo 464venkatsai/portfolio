@@ -26,7 +26,7 @@ const ViewItems = () => {
     }, 1890);
   } else {
     document.getElementById("navbar").style.animation =
-      "navbar-reverse-animation 1.9s ease";
+    "navbar-reverse-animation 1.9s ease";
     items.style.animation = "reverse-animation 2s ease";
     setTimeout(() => {
       items.style.display = "none";
@@ -35,32 +35,42 @@ const ViewItems = () => {
     }, 1890);
   }
 };
-
 // Router
-const Router = (ID_ARR)=>{
-  ID_ARR.forEach((class_)=>{
-    document.querySelectorAll(`${class_}`)[0].style.display = 'none'
-  })
-  document.querySelectorAll(`${ID_ARR[0]}`)[0].style.display = 'flex'
-  if(document.querySelectorAll('.home')[0].style.display ==='flex'){
-    restartVideo();
-    resetAnimation();
-  }
-  if(document.querySelectorAll('.About')[0].style.display ==='flex'){
-    let card = document.querySelectorAll('.card')
-    card.forEach(element => {
-      element.classList.add('animate__bounceIn')
-      console.log(element)
-    });
+    document.addEventListener('DOMContentLoaded', function() {
+      const navLinks = document.querySelectorAll('.list-item');
+      const hamburger = document.querySelector('.hamburger');
+      const items = document.getElementById('items');
 
-    setTimeout(() => {
-      card.forEach(element => {
-        console.log(element)
-        element.classList.remove('animate__bounceIn')
-      });
-    }, 1000);
-  }
-}
+      // Add click event listeners to navigation links
+      for (const link of navLinks) {
+          link.addEventListener('click', smoothScroll);
+      }
+
+      // Toggle the navigation menu when clicking the hamburger icon
+      hamburger.addEventListener('click', toggleMenu);
+
+      // Smooth scrolling function
+      function smoothScroll(e) {
+          e.preventDefault();
+          const targetClass = this.id; // Use class name instead of ID
+          const targetSection = document.querySelector(`.${targetClass}`);
+
+          if (targetSection) {
+              targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              closeMenu();
+          }
+      }
+
+      // Toggle navigation menu
+      function toggleMenu() {
+          items.classList.toggle('show');
+      }
+
+      // Close navigation menu
+      function closeMenu() {
+          items.classList.remove('show');
+      }
+  });
 
 
 const change_page = (link)=>{
@@ -118,21 +128,24 @@ const image = document.querySelector('.hand-shake');
 
     image.addEventListener('animationiteration', pauseAnimation);
 
+    
     document.addEventListener("DOMContentLoaded", function () {
-      let cardElement = document.querySelector('.card');
-      cardElement.classList.add('animate__bouneIn');
-    });
-
-    document.addEventListener("DOMContentLoaded", function () {
-      const classNamesArray = ['video-animation','profile','container','contact-details','gradient-border','phone-intro'];
-
+      const classNamesArray = ['video-animation','profile','contact-details','card','gradient-border','phone-intro'];
+      
       const observer = new IntersectionObserver(
         (entries, observer) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
+              if(entry.target.classList.value==='card'){
+                entry.target.style.animation = 'zoomIn 2s forwards'
+              }
+              else{
+                entry.target.style.transform = "translateX(0)";
+                entry.target.style.transform = "translateZ(0)";}
               entry.target.style.opacity = "1";
-              entry.target.style.transform = "translateX(0)";
-              entry.target.style.transform = "translateZ(0)";
+                // document.querySelectorAll('.card').forEach(element => {
+              //   element.classList.add('animate__zoomIn')
+              // });
               observer.unobserve(entry.target);
             }
           });
