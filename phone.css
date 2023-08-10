@@ -1,7 +1,7 @@
 @media only screen and (max-width: 700px) {
   body {
     /* background-color: black; */
-    overflow-x: hidden;
+    overflow-x: hidden !important;
     height: 100%;
     width: 100%;
     display: flex;
@@ -21,6 +21,7 @@
     padding: 0px;
     margin-bottom: 2rem;
     width: 100%;
+    overflow: hidden !important;
   }
   .items {
     background: rgba(52, 53, 65, 1);
@@ -66,7 +67,7 @@
   height: 50%;
   align-items: center;
   flex-direction: column;
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 .video-animation{
   width: 100%;
@@ -100,6 +101,12 @@
 }
 .card-img{
   width: auto;
+}
+.About{
+  overflow-x: hidden;
+}
+.contact{
+  overflow-x: hidden;
 }
 }
 
