@@ -129,11 +129,25 @@ nav ul li {
     height: 80px;
   }
 }
-.home{
+@keyframes loader {
+  0%{width: 0%;display: block;height: .1px;}
+  99%{width: 99.99%;}
+  100%{display: none;background-color: #000;}
+}
+.load{
   display: none;
+  background-color: white;
+  border: 2.3px solid blueviolet;
+}
+.loader{
+  display: block;
+  animation: loader 2s forwards;
+}
+.home{
+  display: flex;
 }
 .About {
-  display: none;
+  display: flex;
   flex-direction: column;
   padding: 3.5rem 3%;
   /* padding-top: 0rem; */
@@ -148,7 +162,7 @@ nav ul li {
   justify-content: center;
 }
 .contact{
-  display: none;
+  display: flex;
   height: auto;
   padding: 5%;
 }
@@ -257,11 +271,6 @@ video{
 .main{
   font-weight: 500;
   color: #00FFFF;
-  /* color: #FF00FF;
-  color: #00FF00;
-  color: #FF0000;
-  color: #0000FF; */
-
 }
 .phone-intro{
   display: none;
@@ -412,8 +421,9 @@ video{
   margin-bottom: 4rem;
   padding-bottom: 3rem;
   border-radius: 5px;
-  display: block;
+  display: none;
 }
+
 .blog-intro{
   display: flex;
   flex-direction: column;
@@ -434,7 +444,7 @@ video{
     justify-content: center;
     flex-wrap: wrap;
     margin: 3rem 6%;
-    font-size: 40px;
+    font-size: 39px;
     font-weight: bolder;
     line-height: 3.5rem;
     width: 88%;
@@ -507,6 +517,7 @@ video{
   width: 3.5rem;
   font-size: 1px;
   cursor: pointer;
+  border-radius: 6.5px;
 }
 .copy-cmd{
   display: flex;
@@ -614,13 +625,18 @@ video{
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  color: white;
   gap: 2rem;
   padding: 2rem 4rem;
   padding-right: 0;
   transform:  translateX(3rem);;
   transition: opacity  2s, transform 1.9s;
   opacity: 0;
+}
+.contact-details h1{
+  color: white;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  font-size: 25px;
 }
 .contact-links{
   display: flex;
@@ -704,6 +720,7 @@ video{
 }
 .content-name {
   color: white;
+  letter-spacing: .5px;
   position: absolute;
   bottom: 0px;
   left: 0px;

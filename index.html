@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="phone.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&family=Oswald:wght@500&family=Poppins:wght@200;300;500;600&family=Roboto&family=Ubuntu&family=Work+Sans:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&family=Oswald:wght@200;300;500;600&family=Roboto&family=Ubuntu&family=Work+Sans:wght@500&display=swap" rel="stylesheet">
  
     <title>Home</title>
   </head>
@@ -20,12 +20,13 @@
           <img src="profile_pic.png" alt="Profle-Photo" srcset="" class="profile-icon"/>
         </ul>
         <ul class="items" id="items">
-          <li class="list-item" id="Home" onclick="Router()">Home</li>
-          <li class="list-item" id="About" onclick="Router()">About</li>
-          <li class="list-item" id="Blog" onclick="Router()">Blog</li>
-          <li class="list-item" id="Contact" onclick="Router()">Contact</li>
+          <li class="list-item" id="Home" onclick="Router('home')">Home</li>
+          <li class="list-item" id="About" onclick="Router('About')">About</li>
+          <li class="list-item" id="Blog" onclick="Router('Blog')">Blog</li>
+          <li class="list-item" id="Contact" onclick="Router('Contact')">Contact</li>
         </ul>
       </nav>
+      <div class="load"></div>
       <section class="home">
         <section class="Home">
             <div class="video-animation">
@@ -108,7 +109,7 @@
           By capturing the webcam feed, the code identifies hand landmarks and calculates the distances between specific finger landmarks to recognize 
           gestures like a closed fist or an open palm.</p>
           <h4 class='blog-sub-heads'>Libraies Used :</h4>
-          <p class = 'blog-description'><strong>MediaPipe :</strong>This library provides pre-trained machine learning models to detect and track various hand and body parts' landmarks. Click here To View 
+          <p class = 'blog-description'><strong>MediaPipe : </strong>This library provides pre-trained machine learning models to detect and track various hand and body parts' landmarks. Click here To View 
             <a href="https://developers.google.com/mediapipe" target="_blank" class="doc-link"> MediaPipe Documentation</a></p>
           <pre class="command">pip install mediapipe<button class="copy-cmd" onclick="copy_command(0)"><img src="copy.png" alt="copy-command" class="copy-img"></button></pre>
           <p class = 'blog-description'><strong>OpenCV :</strong> Open Source Computer Vision Library, which is widely used for computer vision tasks, such as capturing video streams, image processing,
@@ -246,7 +247,7 @@ cv2.destroyAllWindows()
     <h4 class='blog-sub-heads' style="padding-left: 5.1rem;">Project Overview</h4>
     <p class = 'blog-description'>The project consists the following steps : </p>
     <section class="overview">
-    <p class = 'blog-description'><b>Import Libraries:</b> Import the required libraries, including MediaPipe, OpenCV, and the keyboard library for simulating keypresses.</p>
+    <p class = 'blog-description'><b>Import Libraries : </b> Import the required libraries, including MediaPipe, OpenCV, and the keyboard library for simulating keypresses.</p>
     <div class="code-border">
         <div class="code-head">
             <button class="copy-code"  onclick='copy_code(1)'><img src="copy.png" alt="copy-command" class="copy-img"></button>          
@@ -262,7 +263,7 @@ import cv2
 import keyboard        
       </pre>
     </div>
-    <p class = 'blog-description'><b>Initialize Components:</b>Initialize the necessary components like the webcam feed, the MediaPipe hands detection model, and set the detection and tracking confidence levels.</p>
+    <p class = 'blog-description'><b>Initialize Components : </b>Initialize the necessary components like the webcam feed, the MediaPipe hands detection model, and set the detection and tracking confidence levels.</p>
     <div class="code-border">
         <div class="code-head">
             <button class="copy-code"  onclick='copy_code(2)'><img src="copy.png" alt="copy-command" class="copy-img"></button>          
@@ -278,7 +279,7 @@ cap = cv2.VideoCapture(0)
 hands = mp_hands.Hands(min_detection_confidence=0.8, min_tracking_confidence=0.5)
         </pre>
     </div>
-    <p class = 'blog-description'><b>Define Functions: </b> Define functions to calculate distances between hand landmarks and to check for specific hand gestures based on calculated distances.</p>
+    <p class = 'blog-description'><b>Define Functions : </b>Define functions to calculate distances between hand landmarks and to check for specific hand gestures based on calculated distances.</p>
     <div class="code-border">
         <div class="code-head">
             <button class="copy-code"  onclick='copy_code(3)'><img src="copy.png" alt="copy-command" class="copy-img"></button>          
@@ -335,7 +336,7 @@ def fingers_landmarks(hand):
          ]
       </pre>
     </div>
-    <p class = 'blog-description'><b>Gesture Thresholds:</b>Define threshold values for distances between finger landmarks that correspond to certain gestures. These threshold values will be used to determine whether a gesture is being performed.</p>
+    <p class = 'blog-description'><b>Gesture Thresholds : </b>Define threshold values for distances between finger landmarks that correspond to certain gestures. These threshold values will be used to determine whether a gesture is being performed.</p>
     <div class="code-border">
         <div class="code-head">
             <button class="copy-code"  onclick='copy_code(4)'><img src="copy.png" alt="copy-command" class="copy-img"></button>          
@@ -350,7 +351,7 @@ fist_close = [0.38,0.25,0.2,0.19,0.2]
 fist_open = [0.24,0.39,0.43,0.41,0.35] 
 </pre>
     </div>
-    <p class = 'blog-description'><b>Main Loop: </b> Enter the main loop that captures video frames from the webcam feed, processes them using MediaPipe's hand detection model, and calculates distances between finger landmarks.</p>
+    <p class = 'blog-description'><b>Main Loop : </b> Enter the main loop that captures video frames from the webcam feed, processes them using MediaPipe's hand detection model, and calculates distances between finger landmarks.</p>
     <div class="code-border">
         <div class="code-head">
             <button class="copy-code"  onclick='copy_code(5)'><img src="copy.png" alt="copy-command" class="copy-img"></button>          
@@ -381,7 +382,7 @@ while True:
         distances = [distance(fingers[20], fingers[i]) for i in range(0, 20, 4)]
         </pre>
     </div>
-    <p class = 'blog-description'><b>Recognize Gestures:</b>Based on the calculated distances and defined thresholds, recognize gestures such as a closed fist or an open palm. Simulate keyboard inputs (left and right arrow keys) using the keyboard library based on recognized gestures.</p>
+    <p class = 'blog-description'><b>Recognize Gestures : </b>Based on the calculated distances and defined thresholds, recognize gestures such as a closed fist or an open palm. Simulate keyboard inputs (left and right arrow keys) using the keyboard library based on recognized gestures.</p>
     <div class="code-border">
         <div class="code-head">
             <button class="copy-code"  onclick='copy_code(6)'><img src="copy.png" alt="copy-command" class="copy-img"></button>          
@@ -414,8 +415,8 @@ def check(list_name, symbol):
         keyboard.release("left")
         </pre>
     </div>
-    <p class = 'blog-description'><b>Display Output: </b>Display the processed video frame with drawn hand landmarks and connections.</p>
-    <p class = 'blog-description'><b>Exit the Application: </b>Allow the user to exit the application by pressing the 'q' key.</p>
+    <p class = 'blog-description'><b>Display Output : </b>Display the processed video frame with drawn hand landmarks and connections.</p>
+    <p class = 'blog-description'><b>Exit the Application : </b>Allow the user to exit the application by pressing the 'q' key.</p>
     <div class="code-border">
     <div class="code-head">
         <button class="copy-code"  onclick='copy_code(7)'><img src="copy.png" alt="copy-command" class="copy-img"></button>          

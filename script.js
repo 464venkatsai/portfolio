@@ -32,17 +32,23 @@ const ViewItems = () => {
       items.style.display = "none";
       document.getElementById("navbar").style.height = "80px";
       document.getElementById("navbar").style.justifyContent = "center";
-    }, 1890);
+    }, 2100);
   }
 };
 let show_blog = false
 // Router
-const Router = ()=>{
+const Router = (targetClass)=>{
   if(show_blog===true){
-  document.querySelector('.home').style.display = 'flex';
-  document.querySelector('.About').style.display = 'flex';
-  document.querySelector('.contact').style.display = 'flex';
-  document.querySelector('.Blog-gesuture').style.display = 'none';
+    document.querySelector('.load').classList.add('loader')
+    setTimeout(() => {
+      document.querySelector('.load').classList.remove('loader')
+      document.querySelector('.body').style.backgroundColor = 'black';
+      document.querySelector('.home').style.display = 'flex';
+      document.querySelector('.About').style.display = 'flex';
+      document.querySelector('.contact').style.display = 'flex';
+      document.querySelector('.Blog-gesuture').style.display = 'none';
+      document.querySelector(`.${targetClass}`).scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, 1600);
 }
 }
 document.addEventListener('DOMContentLoaded', function() {
@@ -62,7 +68,6 @@ document.addEventListener('DOMContentLoaded', function() {
     e.preventDefault();
     const targetClass = this.id; // Use class name instead of ID
     const targetSection = document.querySelector(`.${targetClass}`);
-    
     if (targetSection) {
       targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       closeMenu();
@@ -82,6 +87,7 @@ document.addEventListener('DOMContentLoaded', function() {
   //   change_page('Blog');});
   const change_page = (class_name) => {
     document.querySelector('.body').style.setProperty('--main-color', 'black');
+    document.querySelector('.body').style.backgroundColor = 'white';
     document.querySelector('.home').style.display = 'none';
     document.querySelector('.About').style.display = 'none';
     document.querySelector('.contact').style.display = 'none';
@@ -176,10 +182,6 @@ const image = document.querySelector('.hand-shake');
 
     const copy_code = (index)=>{
       navigator.clipboard.writeText(document.querySelectorAll('.code')[index].textContent)
-      document.querySelectorAll('.copy-code')[index].textContent = 'Copied !'
-      setTimeout(() => {
-          document.querySelectorAll('.copy-code')[index].textContent = 'Copy Code'
-      }, 2500);
   }
     const copy_command = (index)=>{
       navigator.clipboard.writeText(document.querySelectorAll('.command')[index].textContent)
