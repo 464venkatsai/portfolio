@@ -1,4 +1,4 @@
-body {
+.body {
   width: 100vw;
   height: 100%;
   margin: 0px;
@@ -13,6 +13,7 @@ body {
 .flex{
   display: flex;
   flex-wrap: wrap;
+  --main-color : white
 }
 .flex-column{
   display: flex;
@@ -23,7 +24,7 @@ body {
   margin: 0px;
   padding: 0px;
   font-family: "Poppins", sans-serif;
-  color: white;
+  color: var(--main-color);
 }
 
 #navbar {
@@ -129,9 +130,28 @@ nav ul li {
   }
 }
 .home{
-  display: flex;
+  display: none;
 }
-
+.About {
+  display: none;
+  flex-direction: column;
+  padding: 3.5rem 3%;
+  /* padding-top: 0rem; */
+}
+.Blog{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  background: whitesmoke;
+  display: flex;
+  justify-content: center;
+}
+.contact{
+  display: none;
+  height: auto;
+  padding: 5%;
+}
 .Home {
   background: black;
   display: flex;
@@ -255,12 +275,7 @@ video{
   /* 90% { width: 90% } */
   100% { width: 100% }
 }
-.About {
-  display: flex;
-  flex-direction: column;
-  padding: 3.5rem 3%;
-  /* padding-top: 0rem; */
-}
+
 .Head{
   font-size: 3vi;
   font-family: 'Raleway', sans-serif;
@@ -362,9 +377,9 @@ video{
   font-weight: 600;
 }
 .button:hover {
-  color: #0d6efd;
-  background: white;
-  border: 2px solid #0d6efd;
+  color: whitesmoke;
+  background: #1c61c9;
+  border: 2px solid #1c61c9;
 }
 .btn{
   width: 9rem;
@@ -387,6 +402,160 @@ video{
   border: 2px solid #00FFFF ;
     box-shadow: 0 0 5px #ff96ad, 0 0 25px #ff96ad, 0 0 50px #ff96ad, 0 0 200px #ff96ad;
   }
+
+.Blog-gesuture{
+  background-color: white;
+  color: #000;
+  width: 80%;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  margin-top: 0rem;
+  margin-bottom: 4rem;
+  padding-bottom: 3rem;
+  border-radius: 5px;
+  display: block;
+}
+.blog-intro{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.blog-description{
+    font-size: 19.5px;
+    margin:  1% 6%;
+    font-weight: 500;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    line-height: 30px;
+    font-family: "Poppins", sans-serif;
+  }
+  .blog-heading{
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 3rem 6%;
+    font-size: 40px;
+    font-weight: bolder;
+    line-height: 3.5rem;
+    width: 88%;
+  }
+  .blog-sub-heads{
+  letter-spacing: 1.1px;
+  line-height: 28px;
+  width: 88%;
+  display: flex;
+  justify-content: start;
+  font-size: 700;
+  margin: 1rem 0rem;
+  font-size: 24px;
+}
+  .Complete-code{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.overview{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;    
+}
+.code-border {
+  width: 90%;
+  background-color: #000000;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  /* margin: rem 0; */
+  border-radius: 10px;
+  overflow: auto;
+  max-height: 25rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.code-head {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.code {
+  width: 100%;
+  padding-left: 5rem;
+  letter-spacing: 1px;
+  tab-size: 4;
+  word-wrap: normal;
+  word-spacing: normal;
+  color: aqua;
+  font-size: 1em;
+  letter-spacing: 0.2;
+  height: auto;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  font-family: 'Ubuntu', sans-serif;
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+.copy-code{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  height: 3rem;
+  width: 3.5rem;
+  font-size: 1px;
+  cursor: pointer;
+}
+.copy-cmd{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  height: 100%;
+  width: 3rem;
+  font-size: 1px;
+  cursor: pointer;
+}
+.copy-cmd:hover,.copy-code:hover{
+  background-color: rgba(255, 255, 255, 0.683);
+}
+.copy-img{
+  width: 40%;
+  height: 60%;
+}
+
+
+.comments{
+    font-size: 16px;
+    color: rgb(45, 138, 45);
+    font-weight: bold;
+}
+
+.command{
+  color: white;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 40%;
+  height: 2.5rem;
+  border-radius: 3px;
+  padding-left:2rem;
+  letter-spacing: 0.5px;
+  margin: 1.2rem 0px;
+}
+.doc-link{
+  color: darkblue;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 17.5px;
+}
+.doc-link:hover{
+  padding-bottom: 2.5px;
+  border-bottom: 4px solid darkblue;
+}
 .Contact {
   width: 100%;
   /* padding: 2%; */
@@ -445,6 +614,7 @@ video{
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  color: white;
   gap: 2rem;
   padding: 2rem 4rem;
   padding-right: 0;
@@ -533,6 +703,7 @@ video{
   transition: transform 0.5s ease;
 }
 .content-name {
+  color: white;
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -555,12 +726,6 @@ video{
 .form input:focus + .label-name::after,
 .form input:valid + .label-name::after {
   transform: translateX(0%);
-}
-
-.contact{
-  display: flex;
-  height: auto;
-  padding: 5%;
 }
 
     /* Customize the scrollbar track */

@@ -35,47 +35,60 @@ const ViewItems = () => {
     }, 1890);
   }
 };
+let show_blog = false
 // Router
-    document.addEventListener('DOMContentLoaded', function() {
-      const navLinks = document.querySelectorAll('.list-item');
-      const hamburger = document.querySelector('.hamburger');
-      const items = document.getElementById('items');
-
-      // Add click event listeners to navigation links
-      for (const link of navLinks) {
-          link.addEventListener('click', smoothScroll);
-      }
-
-      // Toggle the navigation menu when clicking the hamburger icon
-      hamburger.addEventListener('click', toggleMenu);
-
-      // Smooth scrolling function
-      function smoothScroll(e) {
-          e.preventDefault();
-          const targetClass = this.id; // Use class name instead of ID
-          const targetSection = document.querySelector(`.${targetClass}`);
-
-          if (targetSection) {
-              targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-              closeMenu();
-          }
-      }
-
-      // Toggle navigation menu
-      function toggleMenu() {
-          items.classList.toggle('show');
-      }
-
-      // Close navigation menu
-      function closeMenu() {
-          items.classList.remove('show');
-      }
-  });
-
-
-const change_page = (link)=>{
-    window.location.href = `${link}`;
+const Router = ()=>{
+  if(show_blog===true){
+  document.querySelector('.home').style.display = 'flex';
+  document.querySelector('.About').style.display = 'flex';
+  document.querySelector('.contact').style.display = 'flex';
+  document.querySelector('.Blog-gesuture').style.display = 'none';
 }
+}
+document.addEventListener('DOMContentLoaded', function() {
+  const navLinks = document.querySelectorAll('.list-item');
+  const hamburger = document.querySelector('.hamburger');
+  const items = document.getElementById('items');
+  // Add click event listeners to navigation links
+  for (const link of navLinks) {
+    link.addEventListener('click', smoothScroll);
+  }
+  
+  // Toggle the navigation menu when clicking the hamburger icon
+  hamburger.addEventListener('click', toggleMenu);
+  
+  // Smooth scrolling function
+  function smoothScroll(e) {
+    e.preventDefault();
+    const targetClass = this.id; // Use class name instead of ID
+    const targetSection = document.querySelector(`.${targetClass}`);
+    
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      closeMenu();
+    }
+  }
+  // Toggle navigation menu
+  function toggleMenu() {
+    items.classList.toggle('show');
+  }
+  
+  // Close navigation menu
+  function closeMenu() {
+    items.classList.remove('show');
+  }
+});
+// document.querySelector('.Blog-gesture').addEventListener('click', () => {
+  //   change_page('Blog');});
+  const change_page = (class_name) => {
+    document.querySelector('.body').style.setProperty('--main-color', 'black');
+    document.querySelector('.home').style.display = 'none';
+    document.querySelector('.About').style.display = 'none';
+    document.querySelector('.contact').style.display = 'none';
+    document.querySelector(`.${class_name}`).style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  show_blog = true;
+};
 
 // const delay = ms => new Promise(res => setTimeout(res, ms));
 let i= 0
@@ -160,3 +173,14 @@ const image = document.querySelector('.hand-shake');
         });
       });
     });
+
+    const copy_code = (index)=>{
+      navigator.clipboard.writeText(document.querySelectorAll('.code')[index].textContent)
+      document.querySelectorAll('.copy-code')[index].textContent = 'Copied !'
+      setTimeout(() => {
+          document.querySelectorAll('.copy-code')[index].textContent = 'Copy Code'
+      }, 2500);
+  }
+    const copy_command = (index)=>{
+      navigator.clipboard.writeText(document.querySelectorAll('.command')[index].textContent)
+  }

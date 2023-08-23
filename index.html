@@ -5,10 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="phone.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&family=Oswald:wght@500&family=Poppins:wght@200;300;500;600&family=Roboto&family=Ubuntu&family=Work+Sans:wght@500&display=swap" rel="stylesheet">
  
     <title>Home</title>
   </head>
-    <body>
+    <body class="body">
       <nav id="navbar">
         <ul class="hamburger" onclick="ViewItems()">
           <div class="line-nav"></div>
@@ -19,10 +20,10 @@
           <img src="profile_pic.png" alt="Profle-Photo" srcset="" class="profile-icon"/>
         </ul>
         <ul class="items" id="items">
-          <li class="list-item" id="Home" >Home</li>
-          <li class="list-item" id="About" >About</li>
-          <li class="list-item" id="Blog" >Blog</li>
-          <li class="list-item" id="Contact" >Contact</li>
+          <li class="list-item" id="Home" onclick="Router()">Home</li>
+          <li class="list-item" id="About" onclick="Router()">About</li>
+          <li class="list-item" id="Blog" onclick="Router()">Blog</li>
+          <li class="list-item" id="Contact" onclick="Router()">Contact</li>
         </ul>
       </nav>
       <section class="home">
@@ -64,7 +65,7 @@
                   Finding interests and trends based on purchasing patterns of
                   Customer behavior
                 </p>
-                  <button class="button" onclick="change_page(`https://www.google.com/`)">View Code</button>
+                  <button class="button" onclick="change_page('Blog-gesuture')">View Blog</button>
               </div>
             </div>
             <div class="card">
@@ -93,7 +94,348 @@
         </section>
     
       <section class="Blog">
-        <!-- Blog section content goes here -->
+        <section class="Blog-gesuture">
+        <div class="blog-intro">
+          <h1 class="blog-heading">Hand Gesture Recognition using MediaPipe and OpenCV</h1>
+          <p class = 'blog-description'>In the world of computer vision, hand gesture recognition has gained significant attention due
+        to its potential applications in human-computer interaction, virtual reality, gaming, and many more.
+        In this blog post, I will explain one of my Python project that utilizes the MediaPipe library along with
+        OpenCV to perform real-time hand gesture recognition. By analyzing hand landmarks (fingers locations), we'll control
+        keyboard inputs to navigate through the application using hand gestures.</p>
+        <h4 class='blog-sub-heads'>Introduction :</h4>
+        <p class = 'blog-description'>Hand gesture recognition involves interpreting and analyzing the position of a person's hand to infer different gestures. This project uses
+          MediaPipe, a popular open-source library developed by Google, and OpenCV, a well-known computer vision library, to achieve this task.
+          By capturing the webcam feed, the code identifies hand landmarks and calculates the distances between specific finger landmarks to recognize 
+          gestures like a closed fist or an open palm.</p>
+          <h4 class='blog-sub-heads'>Libraies Used :</h4>
+          <p class = 'blog-description'><strong>MediaPipe :</strong>This library provides pre-trained machine learning models to detect and track various hand and body parts' landmarks. Click here To View 
+            <a href="https://developers.google.com/mediapipe" target="_blank" class="doc-link"> MediaPipe Documentation</a></p>
+          <pre class="command">pip install mediapipe<button class="copy-cmd" onclick="copy_command(0)"><img src="copy.png" alt="copy-command" class="copy-img"></button></pre>
+          <p class = 'blog-description'><strong>OpenCV :</strong> Open Source Computer Vision Library, which is widely used for computer vision tasks, such as capturing video streams, image processing,
+            and graphical display. Click here To View <a href="https://docs.opencv.org/4.8.0/d6/d00/tutorial_py_root.html" target="_blank" class="doc-link"> OpenCV Documentation</a></p>    
+          <pre class="command">pip install opencv-python <button class="copy-cmd" onclick="copy_command(1)"><img src="copy.png" alt="copy-command" class="copy-img"></button></pre>
+          <p class = 'blog-description'><strong>Keyboard :</strong> This library  provides functionality for controlling and simulating keyboard input. It allows you to automate 
+            keyboard actions, such as typing characters, pressing keys, and more. Click here To View <a class="doc-link" href="https://pypi.org/project/keyboard/" target="_blank">Keyboard Documentation</a></p>
+          <pre class="command">pip install keyboard<button class="copy-cmd" onclick="copy_command(2)"><img src="copy.png" alt="copy-command" class="copy-img"></button></pre>
+          </div>
+          <div class="Complete-code">
+            <h4 class="blog-sub-heads">The Project Complete Code</h4>
+            <div class="code-border">
+              <div class="code-head">
+                <button class="copy-code" onclick="copy_code(0)">
+                  <img src="copy.png" alt="copy-command" class="copy-img">
+                </button>
+              </div>
+              <pre class="code">
+import mediapipe as mp
+import cv2
+import keyboard
+
+mp_drawing = mp.solutions.drawing_utils
+mp_hands = mp.solutions.hands
+
+cap = cv2.VideoCapture(0)
+
+hands = mp_hands.Hands(min_detection_confidence=0.8, min_tracking_confidence=0.5)
+
+
+def distance(point1, point2):
+    return ((point1.x - point2.x) ** 2 + (point1.y - point2.y) ** 2) ** 0.5
+
+
+def fingers_landmarks(hand):
+    thumbpoint1 = hand.landmark[mp_hands.HandLandmark.THUMB_TIP]
+    thumbpoint2 = hand.landmark[mp_hands.HandLandmark.THUMB_IP]
+    thumbpoint3 = hand.landmark[mp_hands.HandLandmark.THUMB_MCP]
+    thumbpoint4 = hand.landmark[mp_hands.HandLandmark.THUMB_CMC]
+    indexpoint1 = hand.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP]
+    indexpoint2 = hand.landmark[mp_hands.HandLandmark.INDEX_FINGER_DIP]
+    indexpoint3 = hand.landmark[mp_hands.HandLandmark.INDEX_FINGER_PIP]
+    indexpoint4 = hand.landmark[mp_hands.HandLandmark.INDEX_FINGER_MCP]
+    middlepoint1 = hand.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_TIP]
+    middlepoint2 = hand.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_DIP]
+    middlepoint3 = hand.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_PIP]
+    middlepoint4 = hand.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_MCP]
+    ringpoint1 = hand.landmark[mp_hands.HandLandmark.RING_FINGER_TIP]
+    ringpoint2 = hand.landmark[mp_hands.HandLandmark.RING_FINGER_DIP]
+    ringpoint3 = hand.landmark[mp_hands.HandLandmark.RING_FINGER_PIP]
+    ringpoint4 = hand.landmark[mp_hands.HandLandmark.RING_FINGER_MCP]
+    littlepoint1 = hand.landmark[mp_hands.HandLandmark.PINKY_TIP]
+    littlepoint2 = hand.landmark[mp_hands.HandLandmark.PINKY_DIP]
+    littlepoint3 = hand.landmark[mp_hands.HandLandmark.PINKY_PIP]
+    littlepoint4 = hand.landmark[mp_hands.HandLandmark.PINKY_MCP]
+    wrist = hand.landmark[mp_hands.HandLandmark.WRIST]
+    return [
+        thumbpoint1,
+        thumbpoint2,
+        thumbpoint3,
+        thumbpoint4,
+        indexpoint1,
+        indexpoint2,
+        indexpoint3,
+        indexpoint4,
+        middlepoint1,
+        middlepoint2,
+        middlepoint3,
+        middlepoint4,
+        ringpoint1,
+        ringpoint2,
+        ringpoint3,
+        ringpoint4,
+        littlepoint1,
+        littlepoint2,
+        littlepoint3,
+        littlepoint4,
+        wrist,
+    ]
+
+
+def check(list_name, symbol):
+    return (
+        all(
+            [
+                True if dist <= list_name[i] else False
+                for i, dist in enumerate(distances)
+            ]
+        )
+        if symbol == "<="
+        else all(
+            [
+                True if dist >= list_name[i] else False
+                for i, dist in enumerate(distances)
+            ]
+        )
+    )
+
+
+fist_close = [0.38, 0.25, 0.2, 0.19, 0.2]
+fist_open = [0.24, 0.39, 0.43, 0.41, 0.35]
+while True:
+    ret, frame = cap.read()
+    image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    image = cv2.flip(image, 1)
+    image.flags.writeable = False
+    results = hands.process(image)
+    image.flags.writeable = True
+    image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+
+    if results.multi_hand_landmarks:
+        for num, hand in enumerate(results.multi_hand_landmarks):
+            mp_drawing.draw_landmarks(image, hand, mp_hands.HAND_CONNECTIONS)
+            fingers = fingers_landmarks(hand)
+            distances = [distance(fingers[20], fingers[i]) for i in range(0, 20, 4)]
+            if check(fist_close, "<="):
+                keyboard.press("left")
+            elif check(fist_open, ">="):
+                keyboard.press("right")
+            else:
+                keyboard.release("right")
+                keyboard.release("left")
+
+    cv2.imshow("Hand Tracking", image)
+
+    if cv2.waitKey(1) == ord("q"):
+        print(image.shape)
+        break
+
+cap.release()
+cv2.destroyAllWindows()              
+              </pre>
+            </div>
+          </div>    
+    <h4 class='blog-sub-heads' style="padding-left: 5.1rem;">Project Overview</h4>
+    <p class = 'blog-description'>The project consists the following steps : </p>
+    <section class="overview">
+    <p class = 'blog-description'><b>Import Libraries:</b> Import the required libraries, including MediaPipe, OpenCV, and the keyboard library for simulating keypresses.</p>
+    <div class="code-border">
+        <div class="code-head">
+            <button class="copy-code"  onclick='copy_code(1)'><img src="copy.png" alt="copy-command" class="copy-img"></button>          
+        </div>
+        <pre class='code'>
+<pre class="comments">#  This contains the model that can recognize hand landmarks</pre>
+import mediapipe as mp 
+
+<pre class="comments">#  This is used for video capture and processing</pre>
+import cv2             
+
+<pre class="comments">#  This is used for the keyboard integration</pre>
+import keyboard        
+      </pre>
+    </div>
+    <p class = 'blog-description'><b>Initialize Components:</b>Initialize the necessary components like the webcam feed, the MediaPipe hands detection model, and set the detection and tracking confidence levels.</p>
+    <div class="code-border">
+        <div class="code-head">
+            <button class="copy-code"  onclick='copy_code(2)'><img src="copy.png" alt="copy-command" class="copy-img"></button>          
+        </div>
+        <pre class="code">
+        <pre class="comments">#  This is used to draw joining lines through hand landmarks (fingers locations)</pre>
+mp_drawing = mp.solutions.drawing_utils 
+        <pre class="comments">#  This is used for the identifing the hand landmarks</pre>
+mp_hands = mp.solutions.hand        
+        <pre class="comments">#  This is object that is required to start VideoCapture to Cam</pre>    
+cap = cv2.VideoCapture(0)
+        <pre class="comments">#  Initializes an instance of the Hands class from the MediaPipe library</pre>
+hands = mp_hands.Hands(min_detection_confidence=0.8, min_tracking_confidence=0.5)
+        </pre>
+    </div>
+    <p class = 'blog-description'><b>Define Functions: </b> Define functions to calculate distances between hand landmarks and to check for specific hand gestures based on calculated distances.</p>
+    <div class="code-border">
+        <div class="code-head">
+            <button class="copy-code"  onclick='copy_code(3)'><img src="copy.png" alt="copy-command" class="copy-img"></button>          
+        </div>
+        <pre class='code'>
+        <pre class="comments"># calculates the distance between the hand locations</pre>
+def distance(point1, point2):
+    return ((point1.x - point2.x) ** 2 + (point1.y - point2.y) ** 2) ** 0.5
+         <pre class="comments"># This are the Hand landmarks values we can get this from <a href="https://developers.google.com/mediapipe" target="_blank">MediaPipe Documentation</a></pre>
+def fingers_landmarks(hand):
+         thumbpoint1 = hand.landmark[mp_hands.HandLandmark.THUMB_TIP]
+         thumbpoint2 = hand.landmark[mp_hands.HandLandmark.THUMB_IP]
+         thumbpoint3 = hand.landmark[mp_hands.HandLandmark.THUMB_MCP]
+         thumbpoint4 = hand.landmark[mp_hands.HandLandmark.THUMB_CMC]
+         indexpoint1 = hand.landmark[mp_hands.HandLandmark.INDEX_FINGER_TIP]
+         indexpoint2 = hand.landmark[mp_hands.HandLandmark.INDEX_FINGER_DIP]
+         indexpoint3 = hand.landmark[mp_hands.HandLandmark.INDEX_FINGER_PIP]
+         indexpoint4 = hand.landmark[mp_hands.HandLandmark.INDEX_FINGER_MCP]
+         middlepoint1 = hand.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_TIP]
+         middlepoint2 = hand.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_DIP]
+         middlepoint3 = hand.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_PIP]
+         middlepoint4 = hand.landmark[mp_hands.HandLandmark.MIDDLE_FINGER_MCP]
+         ringpoint1 = hand.landmark[mp_hands.HandLandmark.RING_FINGER_TIP]
+         ringpoint2 = hand.landmark[mp_hands.HandLandmark.RING_FINGER_DIP]
+         ringpoint3 = hand.landmark[mp_hands.HandLandmark.RING_FINGER_PIP]
+         ringpoint4 = hand.landmark[mp_hands.HandLandmark.RING_FINGER_MCP]
+         littlepoint1 = hand.landmark[mp_hands.HandLandmark.PINKY_TIP]
+         littlepoint2 = hand.landmark[mp_hands.HandLandmark.PINKY_DIP]
+         littlepoint3 = hand.landmark[mp_hands.HandLandmark.PINKY_PIP]
+         littlepoint4 = hand.landmark[mp_hands.HandLandmark.PINKY_MCP]
+         wrist = hand.landmark[mp_hands.HandLandmark.WRIST]
+         return [
+             thumbpoint1,
+             thumbpoint2,
+             thumbpoint3,
+             thumbpoint4,
+             indexpoint1,
+             indexpoint2,
+             indexpoint3,
+             indexpoint4,
+             middlepoint1,
+             middlepoint2,
+             middlepoint3,
+             middlepoint4,
+             ringpoint1,
+             ringpoint2,
+             ringpoint3,
+             ringpoint4,
+             littlepoint1,
+             littlepoint2,
+             littlepoint3,
+             littlepoint4,
+             wrist,
+         ]
+      </pre>
+    </div>
+    <p class = 'blog-description'><b>Gesture Thresholds:</b>Define threshold values for distances between finger landmarks that correspond to certain gestures. These threshold values will be used to determine whether a gesture is being performed.</p>
+    <div class="code-border">
+        <div class="code-head">
+            <button class="copy-code"  onclick='copy_code(4)'><img src="copy.png" alt="copy-command" class="copy-img"></button>          
+        </div>
+        <pre class='code'>
+        <pre class="comments"># We can custimize our own gesture values <br>
+# I found the values of fist_open and close by exploring various values <br>
+# Closed fist</pre>
+fist_close = [0.38,0.25,0.2,0.19,0.2]
+
+<pre class="comments"># Opened fist</pre> 
+fist_open = [0.24,0.39,0.43,0.41,0.35] 
+</pre>
+    </div>
+    <p class = 'blog-description'><b>Main Loop: </b> Enter the main loop that captures video frames from the webcam feed, processes them using MediaPipe's hand detection model, and calculates distances between finger landmarks.</p>
+    <div class="code-border">
+        <div class="code-head">
+            <button class="copy-code"  onclick='copy_code(5)'><img src="copy.png" alt="copy-command" class="copy-img"></button>          
+        </div>
+        <pre class='code'>
+while True:
+    <pre class="comments"># Starts the Web Cam</pre>
+    ret, frame = cap.read()
+    <pre class="comments"># By default the image/video is in BGR ( Blue, Green, Red ) we will convert it into RGB ( Red, Green, Blue ) <br>
+    # We do this Because RGB is a Standard format</pre>
+    image = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    <pre class="comments"># By default opencv provides the mirror video , So we Will flip it</pre>
+    image = cv2.flip(image, 1)
+    <pre class="comments"># Releasing the default values of the model</pre>
+    image.flags.writeable = False
+    <pre class="comments"># process the image/video the we captured</pre>
+    results = hands.process(image)
+    <pre class="comments"># Setting of image flags</pre>
+    image.flags.writeable = True
+    <pre class="comments"># Converting Back to BGR</pre>
+    image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+
+    <pre class="comments"># Obtaining the hand landmarks and joining the landmarks</pre>
+    if results.multi_hand_landmarks:
+    for num, hand in enumerate(results.multi_hand_landmarks):
+        mp_drawing.draw_landmarks(image, hand, mp_hands.HAND_CONNECTIONS)
+        fingers = fingers_landmarks(hand)
+        distances = [distance(fingers[20], fingers[i]) for i in range(0, 20, 4)]
+        </pre>
+    </div>
+    <p class = 'blog-description'><b>Recognize Gestures:</b>Based on the calculated distances and defined thresholds, recognize gestures such as a closed fist or an open palm. Simulate keyboard inputs (left and right arrow keys) using the keyboard library based on recognized gestures.</p>
+    <div class="code-border">
+        <div class="code-head">
+            <button class="copy-code"  onclick='copy_code(6)'><img src="copy.png" alt="copy-command" class="copy-img"></button>          
+        </div>
+        <pre class='code'>
+def check(list_name, symbol):
+    return (
+        all(
+            [
+                True if dist <= list_name[i] else False
+                for i, dist in enumerate(distances)
+            ]
+        )
+        if symbol == "<="
+        else all(
+            [
+                True if dist >= list_name[i] else False
+                for i, dist in enumerate(distances)
+            ]
+        )
+    )
+            
+            <pre class="comments">        #  Returns True if the fist is open or close and Simulate the keyboard input</pre>
+        if check(fist_close, "<="):
+        keyboard.press("left")
+    elif check(fist_open, ">="):
+        keyboard.press("right")
+    else:
+        keyboard.release("right")
+        keyboard.release("left")
+        </pre>
+    </div>
+    <p class = 'blog-description'><b>Display Output: </b>Display the processed video frame with drawn hand landmarks and connections.</p>
+    <p class = 'blog-description'><b>Exit the Application: </b>Allow the user to exit the application by pressing the 'q' key.</p>
+    <div class="code-border">
+    <div class="code-head">
+        <button class="copy-code"  onclick='copy_code(7)'><img src="copy.png" alt="copy-command" class="copy-img"></button>          
+    </div>
+    <pre class='code'>
+    <pre class="comments"># Shows the Cam Capture</pre>
+cv2.imshow('Hand Tracking', image)
+    <pre class="comments"># If Q is pressed then the video capture will stop</pre>
+if cv2.waitKey(1) == ord('q'):
+
+
+    break
+    <pre class="comments"># Releases the cam Capture</pre>
+cap.release() 
+    <pre class="comments"># Destroys all Windows that are running by opencv</pre>
+cv2.destroyAllWindows() 
+    </pre>
+    </div>
+  </section>
+</section>
       </section>
       <section class="contact">
         <section class="Contact">
