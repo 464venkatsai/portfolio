@@ -83,11 +83,12 @@ const Router = (targetClass)=>{
       view_blog=false
       inblog = false
     }, 2100);
-
+    
   }
   else if (targetClass==='Blog' && view_blog===true){
     document.querySelector('.load').classList.add('loader')
-    setTimeout(() => {      
+    setTimeout(() => {   
+      document.querySelector('.load').classList.remove('loader')   
       document.querySelector('.home').style.display = 'none';
       document.querySelector('.About').style.display = 'none';
       document.querySelector('.contact').style.display = 'none';
