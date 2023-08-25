@@ -8,7 +8,7 @@
     flex-direction: column;
   }
   * {
-    color: white;
+    color: black;
   }
   #navbar {
     background: rgba(52, 53, 65, 1);
@@ -19,9 +19,12 @@
     justify-content: flex-start;
     overflow: hidden;
     padding: 0px;
-    margin-bottom: 2rem;
     width: 100%;
     overflow: hidden !important;
+  }
+  .home{
+    margin-top: 2rem;
+
   }
   .items {
     background: rgba(52, 53, 65, 1);
@@ -57,6 +60,18 @@
   }
   .line {
     background: white;
+  }
+  .command{
+    /* justify-content: center; */
+    padding-left: 5%;
+    width: 80%;
+  }
+  .load{
+    background-color: white;
+     border: 2.3px solid white;
+  }
+  .blog-heading{
+    margin-top: .7rem;
   }
 }
 
