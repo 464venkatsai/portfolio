@@ -52,8 +52,7 @@
               <strong class="flex-column">
                 <div class="flex">
                   <pre class="title" style="display: flex; align-items: center">
-Hi There !</pre
-                  >
+Hi There !</pre>
                   <img src="wave.png" alt="" class="hand-shake" />
                 </div>
                 <pre
@@ -115,8 +114,7 @@ Hi There !</pre
             </p>
             <button
               class="button"
-              onclick="change_page(`https://www.google.com/`)"
-            >
+              onclick="change_page(`Blog-face-recognition`)">
               View Code
             </button>
           </div>
@@ -147,7 +145,20 @@ Hi There !</pre
     <section class="Blog">
       <section class="blog-container">
         <h2>My Coding Blogs</h2>
-        <section class="gesture-short">
+        <!-- <section class="face-recognition short-note">
+            <h4>Face Recognition using OpenCV and Face Recognition Library</h4>
+            <div class="blog-details">
+              <img src="profile_pic.png" alt="profile_pic" class="blog-profile">
+              <p>venkat sai</p>
+              <b>August 30, 2023</b>
+              <b><img src="book.png" alt="book" class="blog-book">  4 min read</b>
+            </div>
+            <div class="blog-short-note">
+              This Python code demonstrates a real-time face detection and recognition system using OpenCV and Face Recognition libraries. By analyzing webcam video frames, the program identifies faces and matches them with a reference image. Detected faces are highlighted with rectangles, and if a match is found, the person's name is displayed. If not recognized, 'Unknown' is shown. This project showcases the power of computer vision for real-time applications, with potential uses in security, access control, and personalized interactions.
+            </div>
+            <button class="blog-btn" onclick="blog_router('Blog-face-recognition')">Read More</button>
+        </section> -->
+        <section class="gesture short-note">
             <h4>Hand Gesture Recognition using MediaPipe and OpenCV</h4>
             <div class="blog-details">
               <img src="profile_pic.png" alt="profile_pic" class="blog-profile">
@@ -162,7 +173,7 @@ Hi There !</pre
         </section>
       </section>
       <section class="full-blogs">
-        <section class="Blog-gesture">
+        <section class="Blog-gesture project-blog">
           <div class="blog-intro">
             <h1 class="blog-heading">
               Hand Gesture Recognition using MediaPipe and OpenCV
@@ -603,6 +614,279 @@ Hi There !</pre
             </div>
           </section>
         </section>
+        <!-- <section class="Blog-face-recognition project-blog">
+          <div class="blog-intro">
+            <h1 class="blog-heading">
+              Real-time Face Recognition using OpenCV and Face Recognition Library
+            </h1>
+            <p class="blog-description">
+              Face recognition technology has become increasingly relevant across
+              various domains, from security systems to personal identification. In
+              this blog post, we'll explore a Python project that leverages the power
+              of OpenCV and the Face Recognition library to build a real-time face
+              recognition system. By analyzing webcam feed data, the system can detect
+              and label known individuals while identifying unknown faces.
+            </p>
+            <h4 class="blog-sub-heads">Introduction :</h4>
+            <p class="blog-description">
+              The goal of this project is to create a real-time face recognition
+              system using the OpenCV library and the Face Recognition library. This
+              system captures video from a webcam, processes the frames to detect
+              faces, and then compares the detected face encodings with known face
+              encodings to determine if the face belongs to a known person. The system
+              annotates the frames with rectangles and labels, indicating the identity
+              of known individuals or marking faces as "Unknown" if no match is found.
+            </p>
+            <h4 class="blog-sub-heads">Libraries Used :</h4>
+            <p class="blog-description">
+              <strong>OpenCV :</strong> Open Source Computer Vision Library, a powerful
+              tool for various computer vision tasks including image and video
+              processing, object detection, and more. Click here to view
+              <a
+                href="https://docs.opencv.org/4.8.0/d6/d00/tutorial_py_root.html"
+                target="_blank"
+                class="doc-link"
+              >
+                OpenCV Documentation</a>.
+            </p>
+            <pre class="command">pip install opencv-python<button class="copy-cmd" onclick="copy_command(0)">  <img src="copy.png" alt="copy-command" class="copy-img"></button>
+            </pre>
+            <p class="blog-description">
+              <strong>Face Recognition :</strong> A Python library specifically designed
+              for face recognition tasks. It provides tools for face detection,
+              face encoding, and face comparison. Click here to view
+              <a
+                href="https://github.com/ageitgey/face_recognition"
+                target="_blank"
+                class="doc-link"
+              >
+                Face Recognition Library</a>.
+            </p>
+            <pre class="command">
+              pip install face_recognition
+              <button class="copy-cmd" onclick="copy_command(1)">
+                <img src="copy.png" alt="copy-command" class="copy-img">
+              </button>
+            </pre>
+          </div>
+          <div class="Complete-code">
+            <h4 class="blog-sub-heads">The Project Complete Code</h4>
+            <div class="code-border">
+              <div class="code-head">
+                <button class="copy-code" onclick="copy_code(0)">
+                  <img src="copy.png" alt="copy-command" class="copy-img" />
+                </button>
+              </div>
+              <pre class="code">
+        import cv2
+        import face_recognition
+        import numpy as np
+        
+        # List of image filenames containing known faces
+        images = ['name.png']
+        
+        # Encode known faces using face_recognition library
+        known_face_encodings = [face_recognition.face_encodings(cv2.imread(image))[0] for image in images]
+        known_faces = [name.split('.')[0] for name in images]
+        
+        # Initialize video capture from webcam
+        cap = cv2.VideoCapture(0)
+        
+        while True:
+            ret, frame = cap.read()
+            resize_frame = cv2.resize(frame, (0, 0), fx=1, fy=1)
+            resize_frame = cv2.cvtColor(resize_frame, cv2.COLOR_BGR2RGB)
+            
+            # Detect new face locations and encodings
+            new_face_locations = face_recognition.face_locations(resize_frame)
+            new_face_encodings = face_recognition.face_encodings(resize_frame, new_face_locations)
+            
+            for face_location, face_encoding in zip(new_face_locations, new_face_encodings):
+                top, right, bottom, left = face_location
+                
+                # Compare face encodings with known face encodings
+                matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
+                face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
+                least_distance_index = np.argmin(face_distances)
+                
+                # Annotate the frame based on matching results
+                if matches[least_distance_index]:
+                    cv2.rectangle(resize_frame, (left, top), (right, bottom), (0, 255, 0), 2)
+                    cv2.putText(resize_frame, known_faces[least_distance_index], (left, top - 10),
+                                cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 1, cv2.LINE_AA)
+                else:
+                    cv2.rectangle(resize_frame, (left, top), (right, bottom), (0, 0, 255), 2)
+                    cv2.putText(resize_frame, 'Unknown', (left, top - 10),
+                                cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 1, cv2.LINE_AA)
+                
+                # Display annotated frame
+                cv2.imshow('Face Detection', resize_frame)
+                
+                # Exit loop if 'q' key is pressed
+                if cv2.waitKey(1) & 0xFF == ord('q'):
+                    break
+        
+        # Release video capture and close windows
+        cap.release()
+        cv2.destroyAllWindows()
+              </pre>
+            </div>
+          </div>
+          <h4 class="blog-sub-heads" style="padding-left: 5.1rem">
+            Project Overview
+          </h4>
+          <section class="overview">
+            <p class="blog-description">
+              <b>Import Libraries :</b> Import the necessary libraries, including
+              OpenCV and the Face Recognition library, to prepare for the face
+              recognition project.
+            </p>
+            <div class="code-border">
+              <div class="code-head">
+                <button class="copy-code" onclick="copy_code(1)">
+                  <img src="copy.png" alt="copy-command" class="copy-img" />
+                </button>
+              </div>
+              <pre class="code">
+        import cv2
+        import face_recognition
+        import numpy as np
+              </pre>
+            </div>
+            <p class="blog-description">
+              <b>Prepare Known Faces :</b> Load images of known individuals, encode their
+              faces using the Face Recognition library, and store the encodings along
+              with the corresponding names.
+            </p>
+            <div class="code-border">
+              <div class="code-head">
+                <button class="copy-code" onclick="copy_code(2)">
+                  <img src="copy.png" alt="copy-command" class="copy-img" />
+                </button>
+              </div>
+              <pre class="code">
+        # List of image filenames containing known faces
+        images = ['name.png']
+        
+        # Encode known faces using face_recognition library
+        known_face_encodings = [face_recognition.face_encodings(cv2.imread(image))[0] for image in images]
+        known_faces = [name.split('.')[0] for name in images]
+              </pre>
+            </div>
+            <p class="blog-description">
+              <b>Initialize Webcam :</b> Start capturing video frames from the webcam and
+              begin the main loop for real-time face recognition.
+            </p>
+            <div class="code-border">
+              <div class="code-head">
+                <button class="copy-code" onclick="copy_code(3)">
+                  <img src="copy.png" alt="copy-command" class="copy-img" />
+                </button>
+              </div>
+              <pre class="code">
+        # Initialize video capture from webcam
+        cap = cv2.VideoCapture(0)
+        
+        while True:
+            ret, frame = cap.read()
+              </pre>
+            </div>
+            <p class="blog-description">
+              <b>Process Frames :</b> Resize the captured frame, detect new face
+              locations, and calculate face encodings for these new faces.
+            </p>
+            <div class="code-border">
+              <div class="code-head">
+                <button class="copy-code" onclick="copy_code(4)">
+                  <img src="copy.png" alt="copy-command" class="copy-img" />
+                </button>
+              </div>
+              <pre class="code">
+        # Resize the frame and convert to RGB format
+        resize_frame = cv2.resize(frame, (0, 0), fx=1, fy=1)
+        resize_frame = cv2.cvtColor(resize_frame, cv2.COLOR_BGR2RGB)
+        
+        # Detect new face locations and encodings
+        new_face_locations = face_recognition.face_locations(resize_frame)
+        new_face_encodings = face_recognition.face_encodings(resize_frame, new_face_locations)
+              </pre>
+            </div>
+            <p class="blog-description">
+              <b>Recognize Faces :</b> Compare the new face encodings with the known face
+              encodings to identify known individuals. Annotate the frame with
+              rectangles and labels based on the recognition results.
+            </p>
+            <div class="code-border">
+              <div class="code-head">
+                <button class="copy-code" onclick="copy_code(5)">
+                  <img src="copy.png" alt="copy-command" class="copy-img" />
+                </button>
+              </div>
+              <pre class="code">
+        for face_location, face_encoding in zip(new_face_locations, new_face_encodings):
+            top, right, bottom, left = face_location
+            
+            # Compare face encodings with known face encodings
+            matches = face_recognition.compare_faces(known_face_encodings, face_encoding)
+            face_distances = face_recognition.face_distance(known_face_encodings, face_encoding)
+            least_distance_index = np.argmin(face_distances)
+            
+            # Annotate the frame based on matching results
+            if matches[least_distance_index]:
+                cv2.rectangle(resize_frame, (left, top), (right, bottom), (0, 255, 0), 2)
+                cv2.putText(resize_frame, known_faces[least_distance_index], (left, top - 10),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 1, cv2.LINE_AA)
+            else:
+                cv2.rectangle(resize_frame, (left, top), (right, bottom), (0, 0, 255), 2)
+                cv2.putText(resize_frame, 'Unknown', (left, top - 10),
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 1, cv2.LINE_AA)
+              </pre>
+            </div>
+            <p class="blog-description">
+              <b>Display and Exit :</b> Display the annotated frame with recognized faces
+              and labels in real-time. Exit the loop when the 'q' key is pressed,
+              release the video capture, and close all windows.
+            </p>
+            <div class="code-border">
+              <div class="code-head">
+                <button class="copy-code" onclick="copy_code(6)">
+                  <img src="copy.png" alt="copy-command" class="copy-img" />
+                </button>
+              </div>
+              <pre class="code">
+        # Display annotated frame
+        cv2.imshow('Face Detection', resize_frame)
+                
+        # Exit loop if 'q' key is pressed
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+        
+        # Release video capture and close windows
+        cap.release()
+        cv2.destroyAllWindows()
+              </pre>
+            </div>
+          </section>
+          <h4 class="blog-sub-heads" style="padding-left: 5.1rem">
+            Conclusion
+          </h4>
+          <p class="blog-description">
+            In this project, we've built a real-time face recognition system using the
+            OpenCV and Face Recognition libraries. The system processes video frames
+            from a webcam, detects faces, and matches them against known faces,
+            enabling the identification of individuals. The annotations on the frames
+            provide visual feedback on the recognition results. This project serves as
+            a foundational implementation for applications like access control,
+            attendance systems, and personalized user experiences.
+          </p>
+          <p class="blog-description">
+            Through this project, we've demonstrated the potential of combining
+            computer vision libraries to create powerful applications. The ability to
+            process and recognize faces in real-time opens doors for various
+            innovative solutions across diverse domains.
+          </p>
+        </section> -->
+        
       </section>
     </section>
     <section class="contact">

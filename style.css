@@ -430,7 +430,10 @@ video{
     box-shadow: 0 0 5px #ff96ad, 0 0 25px #ff96ad, 0 0 50px #ff96ad, 0 0 200px #ff96ad;
   }
 
-.Blog-gesture{
+  .Blog-gesture{
+    /* display: flex; */
+  }
+.project-blog{
   background-color: white;
   color: #000;
   width: 80%;
@@ -439,7 +442,7 @@ video{
   margin-bottom: 4rem;
   padding-bottom: 3rem;
   border-radius: 5px;
-  display: flex;
+  display: none;
   flex-direction: column;
 }
 .blog-container{
@@ -459,9 +462,9 @@ video{
   display: flex;
   justify-content: center;
   font-size: 35px;
-  margin: 2.5rem 0rem;
+  margin: 2rem 0rem;
 }
-.gesture-short{
+.short-note{
   box-shadow: rgba(149, 157, 165, 0.323) 0px 8px 24px;
   background-color: white;
   width: 70%;
@@ -470,6 +473,7 @@ video{
   flex-direction: column;
   padding:1.5rem 3rem ;
   height: auto;
+  margin-bottom: 2rem;
 }
 .blog-btn{
   display: flex;
@@ -485,13 +489,13 @@ video{
   background-color: black;
   border-radius: 6px;
   outline: none;
-  border: 3px solid black;
+  border: 2.7px solid black;
 }
 .blog-btn:hover{
   color: black;
   background-color: white;
 }
-.gesture-short h4{
+.short-note h4{
   font-size: 33px;
   margin-bottom: .2rem;
 }
@@ -524,7 +528,7 @@ video{
   height: 2rem;
   border-radius: 50px;
 }
-.gesture-short b{
+.short-note b{
   display: flex;
   align-items: center;
   color: black
