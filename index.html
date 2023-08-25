@@ -898,24 +898,26 @@ Hi There !</pre>
             class="inputs"
           >
             <div class="form">
-              <input type="text" class="input-values" id="name" required />
+              <input type="text" name="name" class="input-values" id="name" required />
               <label class="label-name" for="email">
                 <span class="content-name">Enter name</span>
               </label>
             </div>
+            <input type="hidden" name="_subject" value="New Visitor !">
+            <input type="hidden" name="_next" value="https://464venkatsai.github.io/portfolio/">
             <div class="form">
-              <input type="text" class="input-values" id="email" required />
+              <input type="email" name="email" class="input-values" id="email" required />
               <label class="label-name" for="email">
                 <span class="content-name">Enter Email</span>
               </label>
             </div>
             <div class="form">
-              <input type="text" class="input-values" id="message" required />
+              <input type="text" name="message" class="input-values" id="message" required />
               <label class="label-name" for="email">
                 <span class="content-name">Enter Message</span>
               </label>
             </div>
-            <button class="btn">submit</button>
+            <button type="submit" class="btn">submit</button>
           </form>
         </div>
         <div class="contact-details">
