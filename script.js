@@ -22,11 +22,10 @@ const ViewItems = () => {
     items.style.paddingBottom = "2rem";
     items.style.textAlign = "center";
     setTimeout(() => {
-      document.getElementById("navbar").style.height = "327px";
+      set_property(['navbar'],property_names=['height'],property_values=['327px'],byclass=false)
     }, 1890);
   } else {
-    document.getElementById("navbar").style.animation =
-    "navbar-reverse-animation 1.9s ease";
+    set_property(['navbar'],property_names=['animation'],property_values=['navbar-reverse-animation 1.9s ease'],byclass=false)
     items.style.animation = "reverse-animation 2s ease";
     setTimeout(() => {
       items.style.display = "none";
@@ -40,12 +39,10 @@ let inblog = false
 // Router
 const Router = (targetClass)=>{
   if(targetClass==='Blog'&& view_blog===false && inblog==false){
-    document.querySelector('.home').style.display = 'none';
-    document.querySelector('.About').style.display = 'none';
-    document.querySelector('.contact').style.display = 'none';
-    document.querySelector('.blog-container').style.display='flex'
-    document.querySelector('.Blog').style.display = 'block';
-    document.querySelector('.body').style.backgroundColor = 'white';
+    set_property(['.body'],property_names=['backgroundColor'],property_values=['white'])
+    set_display(['.home','.About','.contact'],display_type='none',byclass=true)
+    set_display(['.blog-container'],display_type='flex',byclass=true)
+    set_display(['.Blog'],display_type='Block',byclass=true)
     setTimeout(() => {
       inblog=true
       window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -54,14 +51,9 @@ const Router = (targetClass)=>{
     document.querySelector('.load').classList.add('loader')
     setTimeout(() => {
       document.querySelector('.load').classList.remove('loader')
-      document.querySelector('.body').style.backgroundColor = 'black';
-      document.querySelector('.Blog-gesture').style.display = 'none';
-      document.querySelector('.home').style.display = 'flex';
-      document.querySelector('.About').style.display = 'flex';
-      document.querySelector('.contact').style.display = 'flex';
-      document.querySelector(`.full-blogs`).style.display ='none'
-      document.querySelector(`.blog-container`).style.display ='none'
-      document.querySelector('.Blog').style.display='none'
+      set_property(['.body'],property_names=['backgroundColor'],property_values=['black'])
+      set_display([`.${targetClass}`,'.full-blogs','.blog-container','.Blog'],display_type='none')
+      set_display(['.home','.About','.contact'],display_type='flex')
       document.querySelector(`.${targetClass}`).scrollIntoView({ behavior: 'smooth', block: 'start' })
       view_blog=false
       inblog = false
@@ -71,14 +63,9 @@ const Router = (targetClass)=>{
     document.querySelector('.load').classList.add('loader')
     setTimeout(() => {
       document.querySelector('.load').classList.remove('loader')
-      document.querySelector('.body').style.backgroundColor = 'black';
-      document.querySelector('.Blog-gesture').style.display = 'none';
-      document.querySelector('.home').style.display = 'flex';
-      document.querySelector('.About').style.display = 'flex';
-      document.querySelector('.contact').style.display = 'flex';
-      document.querySelector(`.full-blogs`).style.display ='none'
-      document.querySelector(`.blog-container`).style.display ='none'
-      document.querySelector('.Blog').style.display='none'
+      set_property(['.body'],property_names=['backgroundColor'],property_values=['black'])
+      set_display([`.${targetClass}`,'.full-blogs','.blog-container','.Blog'],display_type='none')
+      set_display(['.home','.About','.contact'],display_type='flex')
       document.querySelector(`.${targetClass}`).scrollIntoView({ behavior: 'smooth', block: 'start' })
       view_blog=false
       inblog = false
@@ -89,11 +76,9 @@ const Router = (targetClass)=>{
     document.querySelector('.load').classList.add('loader')
     setTimeout(() => {   
       document.querySelector('.load').classList.remove('loader')   
-      document.querySelector('.home').style.display = 'none';
-      document.querySelector('.About').style.display = 'none';
-      document.querySelector('.contact').style.display = 'none';
-      document.querySelector('.blog-container').style.display='flex'
-      document.querySelector('.Blog').style.display = 'block';
+      set_display(['.blog-container'],display_type='flex')
+      set_display(['.Blog'],display_type='block')
+      set_display(['.home','.About','.contact'],display_type='none')
       blogs_list = true
       setTimeout(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -112,8 +97,6 @@ document.addEventListener('DOMContentLoaded', function() {
   for (const link of navLinks) {
     link.addEventListener('click', smoothScroll);
   }
-  
-  // Toggle the navigation menu when clicking the hamburger icon
   hamburger.addEventListener('click', toggleMenu);
   
   // Smooth scrolling function
@@ -127,12 +110,9 @@ document.addEventListener('DOMContentLoaded', function() {
         closeMenu();}
       }
     }
-    // Toggle navigation menu
     function toggleMenu() {
       items.classList.toggle('show');
   }
-  
-  // Close navigation menu
   function closeMenu() {
     items.classList.remove('show');
   }
@@ -145,15 +125,10 @@ const blog_router = (blog_name)=>{
   }, 2100);
 }
   const change_page = (blog_name) => {
-    document.querySelector('.body').style.setProperty('--main-color', 'black');
     document.querySelector('.body').style.backgroundColor = 'white';
-    document.querySelector('.home').style.display = 'none';
-    document.querySelector('.About').style.display = 'none';
-    document.querySelector('.contact').style.display = 'none';
-    document.querySelector('.Blog').style.display = 'block';
-    document.querySelector(`.${blog_name}`).style.display = 'flex';
-    document.querySelector('.full-blogs').style.display='flex'
-    document.querySelector('.blog-container').style.display='none'
+    set_display(['.home','.About','.contact','.blog-container','.Blog-gesture','.Blog-face-recognition'],display_type='none')
+    set_display(['.full-blogs',`.${blog_name}`],display_type='flex')
+    set_display(['.Blog',],display_type='block')
     window.scrollTo({ top: 0, behavior: 'smooth' });
     view_blog = true;
 };
@@ -247,4 +222,29 @@ const image = document.querySelector('.hand-shake');
   }
     const copy_command = (index)=>{
       navigator.clipboard.writeText(document.querySelectorAll('.command')[index].textContent)
+  }
+
+  const set_display = (class_or_id=[],display_type='flex',byclass=true)=>{
+      if(byclass===true){
+      class_or_id.forEach(element => {
+        document.querySelector(element).style.display= display_type
+      });
+    }else{
+      class_or_id.forEach(element => {
+        document.getElementById(element).style.display= display_type
+      });
+    }
+  }
+  const set_property = (class_or_id=[],property_name=[],property_values=[],byclass=true)=>{
+      let index = 0
+      if(byclass===true){
+      class_or_id.forEach(element => {
+        index = index+1
+        document.querySelector(element).style[property_name[i]]= property_values[i]
+      });
+    }else{
+      class_or_id.forEach(element => {
+        document.getElementById(element).style[property_name[i]]= property_values[i]
+      });
+    }
   }

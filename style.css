@@ -145,7 +145,7 @@ nav ul li:hover::before {
 @keyframes loader {
   0%{width: 0%;display: block;height: .1px;}
   99%{width: 99.99%;}
-  100%{display: none;background-color: #000;}
+  100%{display: none;}
 }
 .load{
   display: none;
@@ -167,6 +167,7 @@ nav ul li:hover::before {
   display: flex;
   flex-direction: column;
   padding: 3.5rem 3%;
+  background-color: #000;
   /* padding-top: 0rem; */
 }
 .Blog{
@@ -180,6 +181,7 @@ nav ul li:hover::before {
   justify-content: center;
 }
 .contact{
+  background-color: #000;
   display: flex;
   height: auto;
   padding: 5%;
@@ -430,7 +432,10 @@ video{
     box-shadow: 0 0 5px #ff96ad, 0 0 25px #ff96ad, 0 0 50px #ff96ad, 0 0 200px #ff96ad;
   }
 
-.Blog-gesture{
+  /* .Blog-gesture{
+    display: flex;
+  } */
+.project-blog{
   background-color: white;
   color: #000;
   width: 80%;
@@ -439,7 +444,7 @@ video{
   margin-bottom: 4rem;
   padding-bottom: 3rem;
   border-radius: 5px;
-  display: flex;
+  display: none;
   flex-direction: column;
 }
 .blog-container{
@@ -459,9 +464,9 @@ video{
   display: flex;
   justify-content: center;
   font-size: 35px;
-  margin: 2.5rem 0rem;
+  margin: 2rem 0rem;
 }
-.gesture-short{
+.short-note{
   box-shadow: rgba(149, 157, 165, 0.323) 0px 8px 24px;
   background-color: white;
   width: 70%;
@@ -469,7 +474,8 @@ video{
   display: flex;
   flex-direction: column;
   padding:1.5rem 3rem ;
-  height: 16rem;
+  height: auto;
+  margin-bottom: 2rem;
 }
 .blog-btn{
   display: flex;
@@ -485,13 +491,13 @@ video{
   background-color: black;
   border-radius: 6px;
   outline: none;
-  border: 3px solid black;
+  border: 2.7px solid black;
 }
 .blog-btn:hover{
   color: black;
   background-color: white;
 }
-.gesture-short h4{
+.short-note h4{
   font-size: 33px;
   margin-bottom: .2rem;
 }
@@ -524,7 +530,7 @@ video{
   height: 2rem;
   border-radius: 50px;
 }
-.gesture-short b{
+.short-note b{
   display: flex;
   align-items: center;
   color: black
@@ -605,7 +611,7 @@ video{
 
 .code {
   width: 100%;
-  padding-left: 5rem;
+  padding-left: 11%;
   letter-spacing: 1px;
   tab-size: 4;
   word-wrap: normal;
