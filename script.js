@@ -22,10 +22,12 @@ const ViewItems = () => {
     items.style.paddingBottom = "2rem";
     items.style.textAlign = "center";
     setTimeout(() => {
-      set_property(['navbar'],property_names=['height'],property_values=['327px'],byclass=false)
+      // set_property(['navbar'],property_names=['height'],property_values=['327px'],byclass=false)
+      document.getElementById('navbar').style.height = '327px'
     }, 1890);
   } else {
-    set_property(['navbar'],property_names=['animation'],property_values=['navbar-reverse-animation 1.9s ease'],byclass=false)
+    // set_property(['navbar'],property_names=['animation'],property_values=['navbar-reverse-animation 1.9s ease'],byclass=false)
+    document.getElementById('navbar').style.animation = 'navbar-reverse-animation 2.1s ease'
     items.style.animation = "reverse-animation 2s ease";
     setTimeout(() => {
       items.style.display = "none";
@@ -78,7 +80,7 @@ const Router = (targetClass)=>{
       document.querySelector('.load').classList.remove('loader')   
       set_display(['.blog-container'],display_type='flex')
       set_display(['.Blog'],display_type='block')
-      set_display(['.home','.About','.contact'],display_type='none')
+      set_display(['.home','.About','.contact','.full-blogs'],display_type='none')
       blogs_list = true
       setTimeout(() => {
         window.scrollTo({ top: 0, behavior: 'smooth' })

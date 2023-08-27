@@ -83,7 +83,7 @@ nav ul li::before {
   left: 0;
   width: 0; 
   height: 2px; 
-  background-color: #000;
+  background-color: black;
   transition: width 0.3s ease; 
 }
 
@@ -162,6 +162,7 @@ nav ul li:hover::before {
 }
 .home{
   display: flex;
+  background-color: black;
 }
 .About {
   display: flex;

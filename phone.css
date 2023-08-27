@@ -23,8 +23,7 @@
     overflow: hidden !important;
   }
   .home{
-    margin-top: 2rem;
-
+    padding-top: 2rem;
   }
   .items {
     background: rgba(52, 53, 65, 1);
@@ -57,6 +56,9 @@
     top: 0px;
     left: 0px;
     width: 100%;
+  }
+  nav ul li::before{
+    background-color: white;
   }
   .line {
     background: white;
