@@ -22,11 +22,9 @@ const ViewItems = () => {
     items.style.paddingBottom = "2rem";
     items.style.textAlign = "center";
     setTimeout(() => {
-      // set_property(['navbar'],property_names=['height'],property_values=['327px'],byclass=false)
       document.getElementById('navbar').style.height = '327px'
     }, 1890);
   } else {
-    // set_property(['navbar'],property_names=['animation'],property_values=['navbar-reverse-animation 1.9s ease'],byclass=false)
     document.getElementById('navbar').style.animation = 'navbar-reverse-animation 2.1s ease'
     items.style.animation = "reverse-animation 2s ease";
     setTimeout(() => {
@@ -95,7 +93,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const navLinks = document.querySelectorAll('.list-item');
   const hamburger = document.querySelector('.hamburger');
   const items = document.getElementById('items');
-  // Add click event listeners to navigation links
   for (const link of navLinks) {
     link.addEventListener('click', smoothScroll);
   }
@@ -104,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Smooth scrolling function
   function smoothScroll(e) {
     e.preventDefault();
-    const targetClass = this.id; // Use class name instead of ID
+    const targetClass = this.id; 
     const targetSection = document.querySelector(`.${targetClass}`);
     if (targetSection) {
       if(targetClass!='Blog'){
