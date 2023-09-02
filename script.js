@@ -78,13 +78,14 @@ const Router = (targetClass)=>{
       document.querySelector('.load').classList.remove('loader')   
       set_display(['.blog-container'],display_type='flex')
       set_display(['.Blog'],display_type='block')
-      set_display(['.home','.About','.contact','.full-blogs'],display_type='none')
+      set_display(['.home','.About','.contact'],display_type='none')
+      window.scrollTo({ top: 0, behavior: 'smooth' })
       blogs_list = true
       setTimeout(() => {
-        window.scrollTo({ top: 0, behavior: 'smooth' })
+        set_display(['.full-blogs'],display_type='none')
         inblog=true
         view_blog=false
-      }, 100);
+      }, 1100);
     }, 2100);
   }
 }

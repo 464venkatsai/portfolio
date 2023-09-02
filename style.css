@@ -153,7 +153,7 @@ nav ul li:hover::before {
   position: sticky;
   top: 5rem;
   /* left: 0px; */
-  border: 2.3px solid darkblue;
+  border: 2.3px solid #FF0000;
   z-index: 100;
 }
 .loader{
@@ -441,7 +441,7 @@ video{
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   margin-top: 0rem;
   margin-bottom: 2.5rem;
-  padding-bottom: 3rem;
+  padding-bottom: 4%;
   border-radius: 5px;
   display: none;
   flex-direction: column;
@@ -551,7 +551,7 @@ video{
 }
 .blog-description{
     font-size: 19.5px;
-    margin:  1% 6%;
+    margin:  3% 6%;
     font-weight: 500;
     word-spacing: 2px;
     letter-spacing: 1px;
@@ -569,6 +569,11 @@ video{
     font-weight: bolder;
     line-height: 3.5rem;
     width: 88%;
+  }
+  .blog-output{
+    width: 50%;
+    margin: 2rem 0rem;
+    border-radius: 5px;
   }
   .blog-sub-heads{
   letter-spacing: 1.1px;
@@ -696,8 +701,10 @@ video{
   justify-content: center;
   align-items: center;
   margin: 1.5rem 0px;
+  overflow: hidden;
 }
 .common-img{
+  border-radius: 5px;
   max-width: 100%;
   height: auto;
 }
@@ -774,19 +781,14 @@ video{
   padding: 7%;
 }
 
-.input-values {
-  width: 100%;
-  height: 100%;
-  border: none;
-  background-color: black;
-  color: #fff;
-  outline: none;
-  font-size: 15px;
-  font-family:'Raleway', sans-serif ;
-  padding-top: 0.65rem;
-  padding-left: 2px;
-}
 
+/* input:-webkit-autofill {
+  background-color: black;
+} */
+/* .input-values:-webkit-autofill + .label-name .content-name {
+  color: white;
+  background-color: #000;
+} */
 .contact-details {
   display: flex;
   flex-direction: column;
@@ -815,7 +817,7 @@ video{
   height: 30px;
   background: white;
   border-radius: 50%;
-
+  
 }
 
 .img:hover {
@@ -832,28 +834,17 @@ video{
   background: linear-gradient(to bottom right, red, blue);
 }
 
-@keyframes animate__bounceIn {
-  0%, 60%, 80%, 100% {
-    animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
-  }
-  0% {
-    opacity: 0;
-    transform: scale(0.3);
-  }
-  60% {
-    opacity: 1;
-    transform: scale(1.03);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-/* The actual CSS rules for the animate__bounceIn class */
-.animate__bounceIn {
-  animation-name: animate__bounceIn;
-  animation-duration: 1s;
+.input-values {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: black !important;
+  color: #fff !important;
+  outline: none;
+  font-size: 15px;
+  font-family: 'Raleway', sans-serif;
+  padding-top: 0.65rem;
+  padding-left: 2px;
 }
 
 .form {
@@ -861,7 +852,7 @@ video{
   position: relative;
   height: 60px;
   overflow: hidden;
-  margin: .4rem 0rem;
+  margin: 0.4rem 0rem;
 }
 
 .form label {
@@ -885,9 +876,10 @@ video{
   transform-origin: left;
   transition: transform 0.5s ease;
 }
+
 .content-name {
   color: white;
-  letter-spacing: .5px;
+  letter-spacing: 0.5px;
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -910,6 +902,11 @@ video{
 .form input:focus + .label-name::after,
 .form input:valid + .label-name::after {
   transform: translateX(0%);
+}
+
+.input-values:-webkit-autofill {
+  -webkit-text-fill-color: white;
+  -webkit-box-shadow: 0 0 0px 1000px black inset;
 }
 
     /* Customize the scrollbar track */
