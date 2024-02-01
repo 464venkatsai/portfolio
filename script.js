@@ -48,45 +48,29 @@ const Router = (targetClass)=>{
       window.scrollTo({ top: 0, behavior: 'smooth' })
     }, 100);
   }else if(inblog===true && targetClass!='Blog'){
-    document.querySelector('.load').classList.add('loader')
-    setTimeout(() => {
-      document.querySelector('.load').classList.remove('loader')
-      set_property(['.body'],property_names=['backgroundColor'],property_values=['black'])
+    set_property(['.body'],property_names=['backgroundColor'],property_values=['black'])
       set_display([`.${targetClass}`,'.full-blogs','.blog-container','.Blog'],display_type='none')
       set_display(['.home','.About','.contact'],display_type='flex')
       document.querySelector(`.${targetClass}`).scrollIntoView({ behavior: 'smooth', block: 'start' })
       view_blog=false
       inblog = false
-    }, 2100);
   }
   else if(targetClass!='Blog' && view_blog===true){
-    document.querySelector('.load').classList.add('loader')
-    setTimeout(() => {
-      document.querySelector('.load').classList.remove('loader')
-      set_property(['.body'],property_names=['backgroundColor'],property_values=['black'])
+    set_property(['.body'],property_names=['backgroundColor'],property_values=['black'])
       set_display([`.${targetClass}`,'.full-blogs','.blog-container','.Blog'],display_type='none')
       set_display(['.home','.About','.contact'],display_type='flex')
       document.querySelector(`.${targetClass}`).scrollIntoView({ behavior: 'smooth', block: 'start' })
       view_blog=false
       inblog = false
-    }, 2100);
-    
   }
   else if (targetClass==='Blog' && view_blog===true){
-    document.querySelector('.load').classList.add('loader')
-    setTimeout(() => {   
-      document.querySelector('.load').classList.remove('loader')   
-      set_display(['.blog-container'],display_type='flex')
+    set_display(['.blog-container'],display_type='flex')
       set_display(['.Blog'],display_type='block')
       set_display(['.home','.About','.contact'],display_type='none')
       window.scrollTo({ top: 0, behavior: 'smooth' })
       blogs_list = true
-      setTimeout(() => {
-        set_display(['.full-blogs'],display_type='none')
-        inblog=true
-        view_blog=false
-      }, 1100);
-    }, 2100);
+      inblog=true
+      view_blog=false
   }
 }
 
@@ -117,12 +101,8 @@ document.addEventListener('DOMContentLoaded', function() {
     items.classList.remove('show');
   }
 });
-const blog_router = (blog_name)=>{
-  document.querySelector('.load').classList.add('loader')
-  setTimeout(() => {
-    document.querySelector('.load').classList.remove('loader')
-    change_page(blog_name)
-  }, 2100);
+const blog_router = (blog_name)=>{  
+  change_page(blog_name) 
 }
   const change_page = (blog_name) => {
     document.querySelector('.body').style.backgroundColor = 'white';

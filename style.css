@@ -934,3 +934,12 @@ video{
     ::-webkit-scrollbar-corner {
       background-color: #c84747;
     }
+
+  @keyframes ViewPage {
+    from{
+      transform: scale(1);
+    }
+    to{
+      transform: scale(0.9);
+    }
+  }
