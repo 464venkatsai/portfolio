@@ -228,3 +228,147 @@ const image = document.querySelector('.hand-shake');
       });
     }
   }
+
+
+// Creating the Items Dynamically here
+
+  // Creating Cards Function
+  function addCard(title, description, imageUrl, onClickAction) {
+
+    let card = document.createElement("div");
+    card.className = "card";
+
+    let img = document.createElement("img");
+    img.src = imageUrl;
+    img.alt = "card-image";
+    img.className = "card-image";
+
+    let project = document.createElement("div");
+    project.className = "project";
+
+    let h4 = document.createElement("h4");
+    h4.className = "project-title";
+    h4.textContent = title;
+
+    let p = document.createElement("p");
+    p.className = "project-description";
+    p.textContent = description;
+
+    let button = document.createElement("button");
+    button.className = "button";
+    button.textContent = onClickAction.startsWith('http') ? "View Code" : "View Blog";
+    button.onclick = function() {
+      if (onClickAction.startsWith('http')) {
+        window.open(onClickAction, '_blank');
+      } else {
+        change_page(onClickAction);
+      }
+    };
+
+    project.appendChild(h4);
+    project.appendChild(p);
+    project.appendChild(button);
+
+    card.appendChild(img);
+    card.appendChild(project);
+
+    document.querySelector(".container").appendChild(card);
+  }
+
+  // Creating Short-Note For Blogs Here
+  function addShortNote(title, author, date, readTime, content, onClickAction) {
+
+    let shortNote = document.createElement("section");
+    shortNote.className = "short-note";
+
+    let h4 = document.createElement("h4");
+    h4.textContent = title;
+
+    let blogDetails = document.createElement("div");
+    blogDetails.className = "blog-details";
+
+    let profilePic = document.createElement("img");
+    profilePic.src = "./Images/Home-images/profile_pic.png";
+    profilePic.alt = "profile_pic";
+    profilePic.className = "blog-profile";
+
+    let pAuthor = document.createElement("p");
+    pAuthor.textContent = author;
+
+    let bDate = document.createElement("b");
+    bDate.textContent = date;
+
+    let bReadTime = document.createElement("b");
+    bReadTime.innerHTML = `<img src="./Images/Blog-images/book.png" alt="book" class="blog-book"> ${readTime} min read`;
+
+    blogDetails.appendChild(profilePic);
+    blogDetails.appendChild(pAuthor);
+    blogDetails.appendChild(bDate);
+    blogDetails.appendChild(bReadTime);
+
+    let blogShortNote = document.createElement("div");
+    blogShortNote.className = "blog-short-note";
+    blogShortNote.textContent = content;
+
+    let btnReadMore = document.createElement("button");
+    btnReadMore.className = "blog-btn";
+    btnReadMore.textContent = "Read More";
+    btnReadMore.onclick = function() {
+      blog_router(onClickAction);
+    };
+
+    shortNote.appendChild(h4);
+    shortNote.appendChild(blogDetails);
+    shortNote.appendChild(blogShortNote);
+    shortNote.appendChild(btnReadMore);
+
+    document.querySelector(".blog-container").appendChild(shortNote);
+  }
+
+// Adding the elements Dynamically 
+
+  // Cards Section 
+  addCard(
+    title = "Hand Gesture Recognition",
+    description = "This project involves computer vision concepts by which we will be achieving the control of keyboard with hand signs",
+    imageUrl = "./Images/project-images/gesture recogination.png",
+    onClickAction = "Blog-gesture"
+  );
+
+  addCard(
+    title = "Real-time Face Recognition",
+    description = "This project involves computer vision concepts by which we will be recognize faces and we can also customize it based on our requirements",
+    imageUrl = "./Images/project-images/face recogination.png",
+    onClickAction = "Blog-face-recognition"
+  );
+
+  addCard(
+    title = "Customer Segmentation",
+    description = "Finding interests and trends based on purchasing patterns of Customer behavior",
+    imageUrl = "./Images/project-images/expensesTracker.png",
+    onClickAction = "https://www.google.com/"
+  );
+
+  // Short Note Section
+  addShortNote(
+    title = "Face Recognition using OpenCV and Face Recognition Library",
+    author = "venkat sai",
+    date = "August 30, 2023",
+    readTime = 4,
+    content = `This Python code demonstrates a real-time face detection and recognition system using OpenCV and Face Recognition libraries. 
+      By analyzing webcam video frames, the program identifies faces and matches them with a reference image. Detected faces are highlighted 
+      with rectangles, and if a match is found, the person's name is displayed. If not recognized, 'Unknown' is shown. This project showcases
+      the power of computer vision for real-time applications, with potential uses in security, access control, and personalized interactions.`,
+    onClickAction = "Blog-face-recognition"
+  );
+
+  addShortNote(
+    title = "Hand Gesture Recognition using MediaPipe and OpenCV",
+    author = "venkat sai",
+    date = "August 23, 2023",
+    readTime = 5,
+    content = `This Python script uses mediapipe and cv2 to track hand gestures through webcam input. It recognizes closed fist and open hand gestures,
+      simulating left and right arrow key presses, respectively. The script offers real-time visual feedback by highlighting landmarks on the
+      webcam feed. User interaction continues until "q" is pressed, demonstrating a basic gesture-based keyboard control concept.`,
+    onClickAction = "Blog-gesture"
+  );
