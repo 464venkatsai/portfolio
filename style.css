@@ -211,6 +211,12 @@ nav ul li:hover::before {
   height: max-content;
   margin: 0;
   margin: 2rem 0;
+  font-family: "Nunito Sans",sans-serif;
+  font-weight: 500;
+  font-size: 2.3vi;
+  letter-spacing: 1px;
+  word-spacing: 5px;
+
 }
 .cardContainer{
   display: grid;
