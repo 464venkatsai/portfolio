@@ -39,6 +39,7 @@ let inblog = false
 // Router
 const Router = (targetClass)=>{
   if(targetClass==='Blog'&& view_blog===false && inblog==false){
+    // Home View To Blog View (Short Note)
     set_property(['.body'],property_names=['backgroundColor'],property_values=['white'])
     set_display(['.home','.About','.contact'],display_type='none',byclass=true)
     set_display(['.blog-container'],display_type='flex',byclass=true)
@@ -48,22 +49,25 @@ const Router = (targetClass)=>{
       window.scrollTo({ top: 0, behavior: 'smooth' })
     }, 100);
   }else if(inblog===true && targetClass!='Blog'){
+    // Reading Blog View To Home, About, Contact
     set_property(['.body'],property_names=['backgroundColor'],property_values=['black'])
-      set_display([`.${targetClass}`,'.full-blogs','.blog-container','.Blog'],display_type='none')
-      set_display(['.home','.About','.contact'],display_type='flex')
-      document.querySelector(`.${targetClass}`).scrollIntoView({ behavior: 'smooth', block: 'start' })
-      view_blog=false
-      inblog = false
+    set_display([`.${targetClass}`,'.full-blogs','.blog-container','.Blog'],display_type='none')
+    set_display(['.home','.About','.contact'],display_type='flex')
+    document.querySelector(`.${targetClass}`).scrollIntoView({ behavior: 'smooth', block: 'start' })
+    view_blog=false
+    inblog = false
   }
   else if(targetClass!='Blog' && view_blog===true){
+    // Home View To Blog Read View To Other Home, About, Contact 
     set_property(['.body'],property_names=['backgroundColor'],property_values=['black'])
-      set_display([`.${targetClass}`,'.full-blogs','.blog-container','.Blog'],display_type='none')
-      set_display(['.home','.About','.contact'],display_type='flex')
-      document.querySelector(`.${targetClass}`).scrollIntoView({ behavior: 'smooth', block: 'start' })
-      view_blog=false
-      inblog = false
+    set_display([`.${targetClass}`,'.full-blogs','.blog-container','.Blog'],display_type='none')
+    set_display(['.home','.About','.contact'],display_type='flex')
+    document.querySelector(`.${targetClass}`).scrollIntoView({ behavior: 'smooth', block: 'start' })
+    view_blog=false
+    inblog = false
   }
   else if (targetClass==='Blog' && view_blog===true){
+    // In Blog And Reading Blog View To Shote Note View
     set_display(['.blog-container'],display_type='flex')
       set_display(['.Blog'],display_type='block')
       set_display(['.home','.About','.contact'],display_type='none')
@@ -71,7 +75,14 @@ const Router = (targetClass)=>{
       blogs_list = true
       inblog=true
       view_blog=false
-  }
+    }else{
+      // MyAboutSection To Home, About, Contact
+      console.log(5)
+      set_display(['.home','.About','.contact',],display_type='flex')
+      document.querySelector(`.${targetClass}`).scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+    set_display(['.MyAboutSection'],display_type='none')
+    document.body.style.backgroundColor="black"
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -179,9 +190,6 @@ const image = document.querySelector('.hand-shake');
                 entry.target.style.transform = "translateX(0)";
                 entry.target.style.transform = "translateZ(0)";}
               entry.target.style.opacity = "1";
-                // document.querySelectorAll('.card').forEach(element => {
-              //   element.classList.add('animate__zoomIn')
-              // });
               observer.unobserve(entry.target);
             }
           });
@@ -233,7 +241,7 @@ const image = document.querySelector('.hand-shake');
 // Creating the Items Dynamically here
 
   // Creating Cards Function
-  function addCard(title, description, imageUrl, onClickAction) {
+  function addCard(title, description, imageUrl, onClickAction,parentClass="MyAboutSection") {
 
     let card = document.createElement("div");
     card.className = "card";
@@ -272,7 +280,7 @@ const image = document.querySelector('.hand-shake');
     card.appendChild(img);
     card.appendChild(project);
 
-    document.querySelector(".container").appendChild(card);
+    document.querySelector(`${parentClass}`).appendChild(card);
   }
 
   // Creating Short-Note For Blogs Here
@@ -332,21 +340,24 @@ const image = document.querySelector('.hand-shake');
     title = "Hand Gesture Recognition",
     description = "This project involves computer vision concepts by which we will be achieving the control of keyboard with hand signs",
     imageUrl = "./Images/project-images/gesture recogination.png",
-    onClickAction = "Blog-gesture"
+    onClickAction = "Blog-gesture",
+    parentClass=".container"
   );
 
   addCard(
     title = "Real-time Face Recognition",
     description = "This project involves computer vision concepts by which we will be recognize faces and we can also customize it based on our requirements",
     imageUrl = "./Images/project-images/face recogination.png",
-    onClickAction = "Blog-face-recognition"
+    onClickAction = "Blog-face-recognition",
+    parentClass=".container"
   );
 
   addCard(
-    title = "Customer Segmentation",
-    description = "Finding interests and trends based on purchasing patterns of Customer behavior",
+    title = "Expense Tracker",
+    description = "Simplify budgeting, track expenses, and achieve financial goals effortlessly with this intuitive tracker.",
     imageUrl = "./Images/project-images/expensesTracker.png",
-    onClickAction = "https://www.google.com/"
+    onClickAction = "https://www.google.com/",
+    parentClass=".container"
   );
 
   // Short Note Section
@@ -372,3 +383,66 @@ const image = document.querySelector('.hand-shake');
       webcam feed. User interaction continues until "q" is pressed, demonstrating a basic gesture-based keyboard control concept.`,
     onClickAction = "Blog-gesture"
   );
+
+  
+  // Function to create and add a new card dynamically
+  function addAboutCard(cardTitle,languageImgLocation,language,imgLocation,date,description,codeLink) {
+    
+        let container = document.querySelector('.cardContainer');
+        
+        let newCard = document.createElement('div');
+        newCard.classList.add('MyCard');
+        
+        newCard.innerHTML = `
+              <img src="${imgLocation}" alt="Image">
+              <div>
+              <span>
+              <img src="${languageImgLocation}" style="border-radius: 50px;" alt="profile-img">
+              <span>${language}</span>
+              </span>
+              <span>
+              <img src="Images/Blog-images/calendar.png" alt="Calender-Image">
+                  <span>${date}</span>
+              </span>
+              </div>
+              <h3>${cardTitle}</h3>
+              <p>${description}</p>
+              <a href="${codeLink}" target="_blank"><button>View Code</button></a>
+              `;
+              container.appendChild(newCard);
+        }
+        
+        addAboutCard(
+          cardTitle = "Expense Tracker App",
+          languageImgLocation = "./Images/project-images/java.png",
+          language = "Java",
+          imgLocation = "./Images/project-images/expensesTracker.png",
+          date = "14 Feb, 2024",
+          description= "Simplify budgeting, track expenses, and achieve financial goals effortlessly with this intuitive tracker.",
+          codeLink = "https://github.com/464venkatsai/ExpenesesTrackerApp"
+          )
+        addAboutCard(
+            cardTitle = "Gesture Recogination",
+            languageImgLocation = "./Images/project-images/python.png",
+            language = "python",
+            imgLocation = "./Images/project-images/gesture recogination.png",
+            date = "30 Aug, 2023",
+            description= "Revolutionize interactions with real-time hand gesture recognition for enhanced control and accessibility",
+            codeLink = "https://github.com/464venkatsai/gesture_recogination_and_keyboard_intergration"
+            )
+          addAboutCard(
+            cardTitle = "Face Recogination",
+            languageImgLocation = "./Images/project-images/python.png",
+            language = "python",
+            imgLocation = "./Images/project-images/face recogination.png",
+            date = "23 Aug, 2023",
+            description= " Secure access and personalize experiences with advanced facial recognition technology for seamless authentication.",
+            codeLink = "https://github.com/464venkatsai/face_recognition_using_python"
+            )
+    // Creating A New About Section To Show All Project Cards
+    const showAboutSection = ()=>{
+        set_display(['.home', '.About', '.contact'], display_type = 'none');
+        set_display(['.MyAboutSection'], display_type = 'block');
+        document.querySelector(`.MyAboutSection h1`).scrollIntoView({ behavior: 'smooth', block: 'end' });
+        document.body.style.backgroundColor = "#e6e7ee";
+    }
