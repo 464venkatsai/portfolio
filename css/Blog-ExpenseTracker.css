@@ -1,0 +1,61 @@
+.Blog-ExpenseTracker{
+    background-color: transparent;
+}
+.Contributors-Container{
+    margin-top: 10rem;
+    background-color: #e6e7ee;
+    padding: 5rem;
+}
+.contributor{
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    height: 25rem;
+    z-index: -1;
+    background-color: #e6e7ee;
+    box-shadow: 6px 6px 12px #b8b9be,-6px -6px 12px #fff!important;
+}
+.contributor-img{
+    padding: 20px;
+    width: max-content;
+    height: 40%;
+    margin-top: -3.5rem;
+    margin-left: 25px;
+    box-shadow: inset 2px 2px 5px #b8b9be,inset -3px -3px 7px #fff!important;
+    border-radius: 100%;
+    z-index: 10;
+}
+.contributor-img img{
+    width: 100%;
+    height: 100%;
+}
+.cardBody{
+    height: 60%;
+    padding: 25px;
+}
+.cardBody h3{
+    font-family: "Nunito Sans",sans-serif;
+    color:#31344b;
+    font-weight: 400;
+    margin-top: 1rem;
+}
+.cardBody div {
+    margin: 1.3rem 0;
+}
+.cardBody div img{
+    aspect-ratio: 3/4;
+    width: 25px;
+    height: 25px;
+    margin-right: .8rem;
+    cursor: pointer;
+}
+.cardBody p{
+    font-family: "Nunito Sans",sans-serif;
+    font-size: 16px;
+    line-height: 25px;
+    word-spacing: 3px;
+    letter-spacing: 0.5px;
+}
+.Context{
+    margin-bottom: 2rem;
+}
