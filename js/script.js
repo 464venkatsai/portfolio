@@ -460,3 +460,59 @@ const image = document.querySelector('.hand-shake');
         document.querySelector(`.MyAboutSection h1`).scrollIntoView({ behavior: 'smooth', block: 'end' });
         document.body.style.backgroundColor = "#e6e7ee";
     }
+
+    function addContributorCard(name, jobTitle, profileImageSrc, contributorDescription, socialMediaLinks) {
+      console.log(socialMediaLinks)
+      let contributorDiv = document.createElement('div');
+      contributorDiv.classList.add('contributor');
+  
+      let imgDiv = document.createElement('div');
+      imgDiv.classList.add('contributor-img');
+  
+      let img = document.createElement('img');
+      img.setAttribute('src', profileImageSrc);
+      img.setAttribute('alt', '');
+  
+      imgDiv.appendChild(img);
+  
+      let cardBodySection = document.createElement('section');
+      cardBodySection.classList.add('cardBody');
+  
+      let nameHeading = document.createElement('h3');
+      nameHeading.textContent = name;
+  
+      let jobTitleHeading = document.createElement('h6');
+      jobTitleHeading.textContent = jobTitle;
+  
+      let socialMediaDiv = document.createElement('div');
+      console.log(socialMediaLinks)
+      socialMediaLinks.forEach(function(link) {
+          let socialMediaImg = document.createElement('img');
+          socialMediaImg.setAttribute('src', link.imageSrc);
+          socialMediaImg.setAttribute('alt', link.altText);
+          socialMediaDiv.appendChild(socialMediaImg);
+      });
+      
+  
+      let descriptionParagraph = document.createElement('p');
+      descriptionParagraph.textContent = contributorDescription;
+
+      cardBodySection.appendChild(nameHeading);
+      cardBodySection.appendChild(jobTitleHeading);
+      cardBodySection.appendChild(socialMediaDiv);
+      cardBodySection.appendChild(descriptionParagraph);
+  
+      contributorDiv.appendChild(imgDiv);
+      contributorDiv.appendChild(cardBodySection);
+  
+      let parentElement = document.querySelector('.Contributors-Container');
+      parentElement.appendChild(contributorDiv);
+  }
+  var socialMediaLinks = [
+    { imageSrc: 'static/Contact-Images/github.png', altText: 'Github' },
+    { imageSrc: 'static/Contact-Images/linkedin.png', altText: 'Linked In' },
+    { imageSrc: 'static/Contact-Images/instagram.png', altText: 'Instagram' },
+    { imageSrc: 'static/Contact-Images/facebook.png', altText: 'Facebook' }
+];
+  var contributorDescription = "UI Designer, java springboot, python developer, FrontEnd Developer, Data Analysit and Data Scientist "
+addContributorCard('Bharath K', 'UI Designer', 'static/Blog-images/profile.png',contributorDescription,socialMediaLinks);

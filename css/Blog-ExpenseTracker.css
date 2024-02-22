@@ -1,9 +1,8 @@
 .Blog-ExpenseTracker{
-    background-color: transparent;
+    padding: 0 5%;
 }
 .Contributors-Container{
     margin-top: 10rem;
-    background-color: #e6e7ee;
     padding: 5rem;
 }
 .contributor{
@@ -11,19 +10,20 @@
     flex-direction: column;
     width: 20rem;
     height: 25rem;
-    z-index: -1;
-    background-color: #e6e7ee;
-    box-shadow: 6px 6px 12px #b8b9be,-6px -6px 12px #fff!important;
+    background-color: white;
+    box-shadow:  -1px -1px 14px lightgray,
+    5px 5px 24px white;
+    border-radius: 10px;
 }
 .contributor-img{
-    padding: 20px;
+    padding: 15px;
     width: max-content;
     height: 40%;
     margin-top: -3.5rem;
-    margin-left: 25px;
-    box-shadow: inset 2px 2px 5px #b8b9be,inset -3px -3px 7px #fff!important;
+    margin-left: 2rem;
+    box-shadow: inset 2px 2px 5px lightgray,inset -2px -2px 5px lightgray!important;
     border-radius: 100%;
-    z-index: 10;
+    background-color: white;
 }
 .contributor-img img{
     width: 100%;
@@ -31,16 +31,26 @@
 }
 .cardBody{
     height: 60%;
-    padding: 25px;
+    padding: 2rem;
+    padding-top: 1rem;
 }
 .cardBody h3{
     font-family: "Nunito Sans",sans-serif;
     color:#31344b;
+    font-weight: 550;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+
+}
+.cardBody h6{
+    font-family: "Nunito Sans",sans-serif;
+    margin-top: .5rem;
+    font-size: 16px;
     font-weight: 400;
-    margin-top: 1rem;
+    letter-spacing: .5px;
 }
 .cardBody div {
-    margin: 1.3rem 0;
+    margin: 1.1rem 0;
 }
 .cardBody div img{
     aspect-ratio: 3/4;

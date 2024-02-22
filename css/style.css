@@ -1090,3 +1090,20 @@ video{
       transform: scale(0.9);
     }
   }
+
+
+  .BlogTitle{
+    font-size: 4.8vmin;
+    color: #000;
+    font-family: "Poppins", sans-serif;
+    margin-top: 2rem;
+    text-align: center;
+  }
+  .BlogDescription{
+    font-size: 19.5px;
+    font-weight: 500;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    line-height: 30px;
+    font-family: "Poppins", sans-serif;
+  }
