@@ -1095,9 +1095,10 @@ video{
   .BlogTitle{
     font-size: 4.8vmin;
     color: #000;
-    font-family: "Poppins", sans-serif;
+    /* font-family: "Poppins", sans-serif; */
     margin-top: 2rem;
     text-align: center;
+    font-family: "Nunito Sans",sans-serif;
   }
   .BlogDescription{
     font-size: 19.5px;
@@ -1106,4 +1107,21 @@ video{
     letter-spacing: 1px;
     line-height: 30px;
     font-family: "Poppins", sans-serif;
+    /* font-family: "Nunito Sans",sans-serif; */
+  }
+  .BlogSubTitle{
+    margin: 1.5rem  0;
+    letter-spacing: 1px;
+    font-family: "Nunito Sans",sans-serif;
+    font-size: 24px;
+  }
+  .projectOverview{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+  }
+  .projectOverview img{
+    width: 19%;
+    border-radius: 10px;
   }
