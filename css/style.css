@@ -1109,6 +1109,15 @@ video{
     font-family: "Poppins", sans-serif;
     /* font-family: "Nunito Sans",sans-serif; */
   }
+  .BlogDescription a{
+    /* text-decoration: none; */
+    color: slateblue;
+    font-weight: 400;
+    letter-spacing: 1px;
+    font-style: normal;
+    font-family: "Ubuntu", sans-serif;
+
+  }
   .BlogSubTitle{
     margin: 1.5rem  0;
     letter-spacing: 1px;
@@ -1124,4 +1133,16 @@ video{
   .projectOverview img{
     width: 19%;
     border-radius: 10px;
+    margin: 1rem 0;
+  }
+  
+  .bulletPoint{
+    margin: 1rem 0;
+  }
+  .bulletPoint strong{
+    font-family: "Nunito Sans",sans-serif;
+    list-style-type: square;
+    letter-spacing: 1px;
+    font-size: 20px;
+    font-weight: 600;
   }

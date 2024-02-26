@@ -6,6 +6,9 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/phone.css" />
     <link rel="stylesheet" href="css/Blog-ExpenseTracker.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,200&family=Oswald:wght@200;300;500;600&family=Roboto&family=Ubuntu&family=Work+Sans:wght@500&display=swap"
       rel="stylesheet"
@@ -826,7 +829,7 @@ Hi There !</pre>
             </p>
             <h6 class="BlogSubTitle">Features Designed In This App</h6>
             <p class="BlogDescription">
-              Let us present the 
+              Let us present the what we have made in this app. We tried to implement a easy to use and user-friendly interface.
             </p>
             <section class="projectOverview">
               <img src="static/Blog-images/ExpenseTracker/home.jpg" alt="" srcset="">
@@ -835,8 +838,45 @@ Hi There !</pre>
               <img src="static/Blog-images/ExpenseTracker/Expenses page.jpg" alt="" srcset="">
               <img src="static/Blog-images/ExpenseTracker/updateTransaction.jpg" alt="" srcset="">
             </section>
+            <h6 class="BlogSubTitle">Challenges Faced In This App</h6>
+            <p class="BlogDescription">
+              Since, This is our frist app adding every feature is a kind of challenge for us. Our Main challenge is to come up with a interactive and user-friendly interface. 
+              we searched many website and explored several kinds of app designs and finalized this User interface. 
+            </p>
+            <li class="bulletPoint">
+              <strong>Recycler View</strong>
+            </li>
+            <p class="BlogDescription">
+              Implementation of <a href="https://developer.android.com/reference/androidx/recyclerview/widget/RecyclerView" target="_blank">RecyclerView</a> 
+              enables user to efficiently manage the memory by only storing the items required or that fits screen. This is a way better than <a href="https://developer.android.com/reference/android/widget/ListView" target="_blank">ListView</a> 
+              because listview completely loads the all the items into the memory and uses it. we faced some issues while implementation of the recyclerview
+              adding customAdapter to the recyclerview which contains tag Image, Name of Transaction, Tag, Amount and  displaying that customAdapter on the dashboard was our very frist challenge. 
+            </p>
+            <li class="bulletPoint">
+              <strong>Setuping DataBase</strong>
+            </li>
+            <p class="BlogDescription">
+              Initally we thought of <a href="https://developer.android.com/training/data-storage/shared#:~:text=Android%20provides%20APIs%20for%20storing,audio%20files%2C%20and%20so%20on.">shared File System</a>
+               to store the data of transactions but it became overwhelming in terms of memory and maintaing code then we thought of using MongoDB Atlas to store and retrive the data but it results as failure after spending hours, reading documentation of MongoDB and reviews stackoverflow. After we thought of using the built-in database of android which is SQLite, it is fast and secure which store the data locally.It also slove the problem of security at the same time
+            </p>
+            <li class="bulletPoint">
+              <strong>Adding Transaction and updateing RecyclerView</strong>
+            </li>
+            <p class="BlogDescription">
+              we have created a new <a href="https://developer.android.com/guide/components/activities/intro-activities">Activity</a> to added new transaction in that we have 
+              asked about the Name, Amount, Tag, Type, Date and Note to remember the transaction effectively, But problem is connectioning and the addTransaction button with the database and updating recyclerview
+            </p>
+            <li class="bulletPoint">
+              <strong>Dashboard Functionality</strong>
+            </li>
+            <p class="BlogDescription">
+              We have coded the recyclerview in a single activity without using fragments but our intention is to show all transactions in Dashboard fragment and all expense in 
+              Expenses fragment and all savings in Savings Fragment but we did't even use a single fragment then we understood that rewriting the code in the form of fragments and 
+              updateing the recyclerview accordinglly was a big challenge
+            </p>
+
           </section>
-          <section class="Contributors-Container">
+          <section class="Contributors-Container"> 
             <h2 class="flex justify-content" style="font-size: 2vi; color: #000; margin-bottom: 7rem; font-weight: 500;font-family: Nunito Sans,sans-serif;">Thanks alot for your contribution</h2>
             <!-- Contributors Are Generated Using JS -->
           </section>
