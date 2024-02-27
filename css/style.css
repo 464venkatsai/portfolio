@@ -1095,8 +1095,6 @@ video{
   .BlogTitle{
     font-size: 4.8vmin;
     color: #000;
-    /* font-family: "Poppins", sans-serif; */
-    margin-top: 2rem;
     text-align: center;
     font-family: "Nunito Sans",sans-serif;
   }
@@ -1116,7 +1114,6 @@ video{
     letter-spacing: 1px;
     font-style: normal;
     font-family: "Ubuntu", sans-serif;
-
   }
   .BlogSubTitle{
     margin: 1.5rem  0;
@@ -1145,4 +1142,9 @@ video{
     letter-spacing: 1px;
     font-size: 20px;
     font-weight: 600;
+  }
+  .Blog-learnings{
+    margin-top: .6rem;
+    font-size: 19px;
+    line-height: 30px;
   }

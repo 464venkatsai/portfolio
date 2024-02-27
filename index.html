@@ -815,7 +815,7 @@ Hi There !</pre>
             innovative solutions across diverse domains.
           </p>
         </section>
-        <section class="Blog-ExpenseTracker project-blog">
+        <section class="Blog-ExpenseTracker">
           <section class="Context">
             <h2 class="BlogTitle">Expenses Tracker The Android App</h2>
             <h6 class="BlogSubTitle">Introduction</h6>
@@ -857,14 +857,14 @@ Hi There !</pre>
             </li>
             <p class="BlogDescription">
               Initally we thought of <a href="https://developer.android.com/training/data-storage/shared#:~:text=Android%20provides%20APIs%20for%20storing,audio%20files%2C%20and%20so%20on.">shared File System</a>
-               to store the data of transactions but it became overwhelming in terms of memory and maintaing code then we thought of using MongoDB Atlas to store and retrive the data but it results as failure after spending hours, reading documentation of MongoDB and reviews stackoverflow. After we thought of using the built-in database of android which is SQLite, it is fast and secure which store the data locally.It also slove the problem of security at the same time
+               to store the data of transactions but it became overwhelming in terms of memory and maintaing code then we thought of using MongoDB Atlas to store and retrive the data but it results as failure after spending hours, reading documentation of MongoDB and reviews stackoverflow. After we thought of using the built-in database of android which is SQLite, it is fast and secure which store the data locally.It also slove the problem of security at the same time.
             </p>
             <li class="bulletPoint">
-              <strong>Adding Transaction and updateing RecyclerView</strong>
+              <strong>Adding Transaction and updating RecyclerView</strong>
             </li>
             <p class="BlogDescription">
               we have created a new <a href="https://developer.android.com/guide/components/activities/intro-activities">Activity</a> to added new transaction in that we have 
-              asked about the Name, Amount, Tag, Type, Date and Note to remember the transaction effectively, But problem is connectioning and the addTransaction button with the database and updating recyclerview
+              asked about the Name, Amount, Tag, Type, Date and Note to remember the transaction effectively, But problem is connectioning and the addTransaction button with the database and updating recyclerview.
             </p>
             <li class="bulletPoint">
               <strong>Dashboard Functionality</strong>
@@ -872,12 +872,33 @@ Hi There !</pre>
             <p class="BlogDescription">
               We have coded the recyclerview in a single activity without using fragments but our intention is to show all transactions in Dashboard fragment and all expense in 
               Expenses fragment and all savings in Savings Fragment but we did't even use a single fragment then we understood that rewriting the code in the form of fragments and 
-              updateing the recyclerview accordinglly was a big challenge
+              updateing the recyclerview accordinglly was a big challenge.
             </p>
-
+            <li class="bulletPoint">
+              <strong>Updation And Deletion Of Transaction</strong>
+            </li>
+            <p class="BlogDescription">
+              We want to enable user to update the transaction and delete it for that we need to perform deletion and for that we need a unique id that we did't add then we have rewritten the entire code for database to add a auto-increment id or Sno for every transaction to make it unique. Then we created a method to update and perform the deletion for every transaction.
+            </p>
+            <li class="bulletPoint">
+              <strong>Savings and Expenses Fragment</strong>
+            </li>
+            <p class="BlogDescription">
+              we have create savings and expenses <a href="https://developer.android.com/guide/fragments">fragments</a> seperatly to manage and view the transactions effectively and efficiently. Adding for these fragments is not possible, every time user needs to go to dashboard for performing any <a href="https://en.wikipedia.org/wiki/Create,_read,_update_and_delete#:~:text=In%20computer%20programming%2C%20create%2C%20read,computer%2Dbased%20forms%20and%20reports.">CRUD</a> operations and we fix that now user can perform CRUD operations from any fragment and recyclerview view will respond exacly accordinglly to the user.
+            </p>
+            <p class="BlogDescription" style="margin-top: 1rem;">
+              These are challenges that we faced while making our frist app. Feel free to contribute or explore <a href="https://github.com/464venkatsai/ExpenesesTrackerApp">ExpenseTracker Project</a>. If you have any feature that you want to contribute don't hesistate to <span>contact us</span> so, we can work together on the feature.
+            </p>
+            <h6 class="BlogSubTitle">Conclusion</h6>
+            <p class="BlogDescription">
+              Here's some important this we learned from this project
+              <li class="Blog-learnings">Design structrue or blue print of the project before getting into coding.</li>
+              <li class="Blog-learnings">Fragments are used when you have reusable UI components or when you need to create flexible layouts that can adapt to different screen sizes or orientations.</li>
+              <li class="Blog-learnings">activities are used when you have distinct screens or workflows in your app, such as navigating from a list screen to a detail screen.</li>
+            </p>
           </section>
+          <h2 style="font-size: 5vmin; color: #000; margin: 2rem 0; font-weight: 500;font-family: Nunito Sans,sans-serif;">Thanks alot for your contribution</h2>
           <section class="Contributors-Container"> 
-            <h2 class="flex justify-content" style="font-size: 2vi; color: #000; margin-bottom: 7rem; font-weight: 500;font-family: Nunito Sans,sans-serif;">Thanks alot for your contribution</h2>
             <!-- Contributors Are Generated Using JS -->
           </section>
         </section>
