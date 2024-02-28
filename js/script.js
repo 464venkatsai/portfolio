@@ -70,6 +70,7 @@ const Router = (targetClass)=>{
     // In Blog And Reading Blog View To Shote Note View
     set_display(['.blog-container'],display_type='flex')
       set_display(['.Blog'],display_type='block')
+      set_display(['.full-blogs'],display_type='none')
       set_display(['.home','.About','.contact'],display_type='none')
       window.scrollTo({ top: 0, behavior: 'smooth' })
       blogs_list = true

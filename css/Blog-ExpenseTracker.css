@@ -5,7 +5,7 @@
     align-items: center;
 }
 .Context{
-    width: 80%;
+    width: 100%;
     padding: 0 5%;
     background-color: white;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
@@ -16,7 +16,7 @@
 }
 .Contributors-Container{
     /* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
-    width: 80%;
+    width: 100%;
     padding: 5%;
     /* background-color: white; */
 }
