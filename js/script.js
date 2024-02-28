@@ -515,4 +515,4 @@ const image = document.querySelector('.hand-shake');
     { imageSrc: 'static/Contact-Images/facebook.png', altText: 'Facebook' }
 ];
   var contributorDescription = "UI Designer, java springboot, python developer, FrontEnd Developer, Data Analysit and Data Scientist "
-addContributorCard('Bharath K', 'UI Designer', 'static/Blog-images/profile.png',contributorDescription,socialMediaLinks);
+addContributorCard('Bharath K', 'UI Designer', 'static/Blog-images/bharth.jpg',contributorDescription,socialMediaLinks);
