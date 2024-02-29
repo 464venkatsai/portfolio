@@ -185,6 +185,7 @@ nav ul li:hover::before {
 .home{
   display: flex;
   background-color: black;
+  width: 100%;
 }
 .About {
   display: flex;
@@ -291,6 +292,7 @@ nav ul li:hover::before {
     inset -6px -6px 10px 0 #f4f4f4;
 }
 .MoreProjects button{
+  font-family: "Nunito Sans",sans-serif;
   width: max-content;
   color: white;
   text-align: center;
@@ -340,6 +342,7 @@ nav ul li:hover::before {
   padding: 4%;
   margin-top: 1rem;
   height: 70%;
+  width: 100%;
 }
 
 .video-animation{
@@ -412,15 +415,14 @@ video{
 }
 #typing-text {
   animation:  typing-animation 7s infinite;
-  margin-top: 6%;
+  margin-top: 5%;
   color: #FAEBD7;
-  font-family: monospace;
   overflow: hidden;
   white-space: nowrap;
   letter-spacing: .5px;
   display: flex;
   flex-wrap: wrap;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Nunito Sans",sans-serif;
   font-size: 3vi;
   padding-left :3%;
 }
@@ -431,13 +433,14 @@ video{
   font-size: 3vi;
   /* line-height: .5; */
   font-weight: 400;
-  font-family: 'Raleway', sans-serif;
+  font-family: "Nunito Sans",sans-serif;
   margin: 2.5%;
 
 }
 .main{
   font-weight: 500;
   color: #00FFFF;
+  font-family: "Nunito Sans",sans-serif;
 }
 .phone-intro{
   display: none;
@@ -453,8 +456,8 @@ video{
 }
 
 .Head{
-  font-size: 3vi;
-  font-family: 'Raleway', sans-serif;
+  font-size: 3.1vi;
+  font-family: "Nunito Sans",sans-serif;
   margin-bottom: 6rem;
   color: #00FFFF;
   font-weight: 500;
@@ -478,7 +481,7 @@ video{
   overflow: hidden;
   /* width: 85%; */
   height: auto;
-  background-color: #0d6efd;
+  background-color: transparent;
   position: relative;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin: 0;
@@ -517,7 +520,7 @@ video{
   justify-content: center;
   padding: 4.5%;
   position: absolute;
-  bottom: -100%;
+  bottom: -9rem;
   left: 0;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.397);
@@ -531,12 +534,13 @@ video{
 }
 
 .project-title {
+  font-family: "Nunito Sans",sans-serif;
   display: flex;
   width: 90%;
-  font-size: 23px;
+  font-size: larger;
 }
 .project-description {
-  font-size: 14px;
+  font-size: medium;
   line-height: 22px;
   letter-spacing: .7px;
   word-spacing: 1px;
@@ -647,8 +651,11 @@ video{
   background-color: white;
 }
 .short-note h4{
-  font-size: 33px;
+  font-family: "Nunito Sans",sans-serif;
+  font-size: 1.5rem;
   margin-bottom: .2rem;
+  letter-spacing: 1.1px;
+  word-spacing: 2px;
 }
 .blog-details{
   display: flex;
@@ -668,11 +675,11 @@ video{
   font-family: 'Ubuntu', sans-serif;
 }
 .blog-short-note{
-  font-size: 20px;
-  font-weight: 500;
+  font-size: large;
   word-spacing: 2px;
   letter-spacing: 1px;
   line-height: 25px;
+  font-family: "poppins",sans-serif;
 }
 .blog-profile{
   width: 2rem;
@@ -697,8 +704,8 @@ video{
   align-items: center;
 }
 .blog-description{
-    font-size: 19.5px;
-    margin:  3% 6%;
+    font-size: medium;
+    margin:  1rem 6%;
     font-weight: 500;
     word-spacing: 2px;
     letter-spacing: 1px;
@@ -712,7 +719,7 @@ video{
     flex-wrap: wrap;
     margin: 3rem 6%;
     margin-bottom: .5rem;
-    font-size: 39px;
+    font-size:xx-large;
     font-weight: bolder;
     line-height: 3.5rem;
     width: 88%;
@@ -728,9 +735,9 @@ video{
   width: 88%;
   display: flex;
   justify-content: start;
-  font-size: 700;
   margin: 1rem 0rem;
-  font-size: 24px;
+  font-family: "Nunito Sans",sans-serif;
+  font-size: larger;
 }
   .Complete-code{
     display: flex;
@@ -950,8 +957,10 @@ video{
 }
 .contact-details h1{
   color: white;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
+  word-spacing: 2px;
   line-height: 1.5;
+  font-family: "Nunito Sans",sans-serif;
   font-size: 25px;
 }
 .contact-links{
@@ -1093,13 +1102,13 @@ video{
 
 
   .BlogTitle{
-    font-size: 4.8vmin;
+    font-size: xx-large;
     color: #000;
     text-align: center;
     font-family: "Nunito Sans",sans-serif;
   }
   .BlogDescription{
-    font-size: 19.5px;
+    font-size: medium;
     font-weight: 500;
     word-spacing: 2px;
     letter-spacing: 1px;
@@ -1119,7 +1128,7 @@ video{
     margin: 1.5rem  0;
     letter-spacing: 1px;
     font-family: "Nunito Sans",sans-serif;
-    font-size: 24px;
+    font-size: larger;
   }
   .projectOverview{
     display: flex;
@@ -1140,11 +1149,11 @@ video{
     font-family: "Nunito Sans",sans-serif;
     list-style-type: square;
     letter-spacing: 1px;
-    font-size: 20px;
+    font-size: medium;
     font-weight: 600;
   }
   .Blog-learnings{
     margin-top: .6rem;
-    font-size: 19px;
+    font-size: medium;
     line-height: 30px;
   }

@@ -342,7 +342,7 @@ const image = document.querySelector('.hand-shake');
   // Cards Section 
   addCard(
     title = "Hand Gesture Recognition",
-    description = "This project involves computer vision concepts by which we will be achieving the control of keyboard with hand signs",
+    description = "This project involves computer vision concepts by which we will be achieving the control of keyboard with hand signs.",
     imageUrl = "./static/project-images/gesture recogination.png",
     onClickAction = "Blog-gesture",
     parentClass=".container"
@@ -350,7 +350,7 @@ const image = document.querySelector('.hand-shake');
 
   addCard(
     title = "Real-time Face Recognition",
-    description = "This project involves computer vision concepts by which we will be recognize faces and we can also customize it based on our requirements",
+    description = "This project involves computer vision concepts by which we will be recognize faces and can be customized accordingly.",
     imageUrl = "./static/project-images/face recogination.png",
     onClickAction = "Blog-face-recognition",
     parentClass=".container"
@@ -358,7 +358,7 @@ const image = document.querySelector('.hand-shake');
 
   addCard(
     title = "Expense Tracker",
-    description = "Simplify budgeting, track expenses, and achieve financial goals effortlessly with this intuitive tracker.",
+    description = "This is an android app build to manage and track our daily expeneses with interactive user interface and colors.",
     imageUrl = "./static/project-images/expensesTracker.png",
     onClickAction = "Blog-ExpenseTracker",
     parentClass=".container"

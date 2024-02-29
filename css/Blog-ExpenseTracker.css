@@ -53,14 +53,14 @@
     font-family: "Nunito Sans",sans-serif;
     color:#31344b;
     font-weight: 550;
-    font-size: 1.5rem;
+    font-size: x-large;
     letter-spacing: 1px;
 
 }
 .cardBody h6{
     font-family: "Nunito Sans",sans-serif;
     margin-top: .5rem;
-    font-size: 16px;
+    font-size: medium;
     font-weight: 400;
     letter-spacing: .5px;
 }
@@ -76,7 +76,7 @@
 }
 .cardBody p{
     font-family: "Nunito Sans",sans-serif;
-    font-size: 16px;
+    font-size: medium;
     line-height: 25px;
     word-spacing: 3px;
     letter-spacing: 0.5px;
