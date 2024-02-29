@@ -416,6 +416,7 @@ video{
   animation:  typing-animation 7s infinite;
   color: #FAEBD7;
   overflow: hidden;
+  margin-top: 2%;
   white-space: nowrap;
   letter-spacing: .5px;
   display: flex;
