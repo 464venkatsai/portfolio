@@ -410,12 +410,10 @@ video{
   25% { transform: translateX(-6px) rotate(-6deg); }
   50% { transform: translateX(6px) rotate(6deg); }
   75% { transform: translateX(-6px) rotate(-6deg); }
-  /* 95% { transform: translateX(5px) rotate(5deg); } */
   100% { transform: translateX(0); }
 }
 #typing-text {
   animation:  typing-animation 7s infinite;
-  margin-top: 5%;
   color: #FAEBD7;
   overflow: hidden;
   white-space: nowrap;
