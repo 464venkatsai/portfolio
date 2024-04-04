@@ -1,7 +1,7 @@
-<p align="center">
+<h3 align="center">
   Portfolio Website -
   <a href="https://464venkatsai.github.io/portfolio/" title="Venkatsai's Portfolio"> Venkat's Portfolio</a>
-</p>
+</h3>
 
 ![website image](https://github.com/464venkatsai/portfolio/assets/112299999/c4f9a015-acb3-4916-a5f6-d7ee727298ed)
 
