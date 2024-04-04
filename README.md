@@ -52,8 +52,11 @@ My key skills and areas of expertise include:
 This website is also responsive.
 
 ## 📁 Files Description
-  - 📁 **`CSS`** : This folder containers all style required for the portfolio
-  - 📘 **`README.md`**: This file, providing an overview of the portfolio.
+  - 📁 **`CSS`** : This folder containers all styles required for the portfolio.
+  - 📁 **`JS`** : This folder containers all JavaScript Files.
+  - 📁 **`JS`** : This folder containers all  Images and videos. 
+  - 📘 **`README.md`**: This file provides an overview of the portfolio.
+  -  **`index.html`** : This file contains the HTML of the portfolio.
 
 ## 📋 Clone Portfolio
 To clone this repository you only need `Git` installed in your system (Globally).
@@ -63,7 +66,7 @@ Git not installed ? <a href="https://git-scm.com/download/win">Download Git From
 3. Install Live server extentision
 4. Right click and open with live server
 Run the app in the development mode.
-Open http://localhost:3000 to view it in the browser. The page will reload if you make edits.
+Open **`http://localhost:3000`** to view it in the browser. The page will reload if you make edits.
 
 ## 🎉 Closing Remarks
 Thank you for taking the time to explore my portfolio! I hope you find my projects informative and inspiring. I am always open to feedback, collaboration opportunities, or just a friendly chat about data science.
