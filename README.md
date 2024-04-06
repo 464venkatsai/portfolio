@@ -65,9 +65,11 @@ Git not installed ? <a href="https://git-scm.com/download/win">Download Git From
 2. In terminal enter `git clone https://github.com/464venkatsai/portfolio.git .`
 3. Install Live server extentision
 4. Right click and open with live server
-Run the app in the development mode.
-Open **`http://localhost:3000`** to view it in the browser. The page will reload if you make edits.
-If this project helps show your gratidude by staring repository.
+5. Run the app in the development mode.
+6. Open **`http://localhost:3000`** to view it in the browser.
+7. The page will reload if you make edits.
+<br>
+<strong>🤝 If this project helps show your gratidude by staring and sharing repository.</strong>
 
 ## 🎉 Closing Remarks
 Thank you for taking the time to explore my portfolio! I hope you find my projects informative and inspiring. I am always open to feedback, collaboration opportunities, or just a friendly chat about data science.
